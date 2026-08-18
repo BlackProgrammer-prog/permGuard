@@ -1,3 +1,17 @@
 # @permguard/react
 
-React UI helpers. Client checks improve UX only; server enforcement remains authoritative.
+Explicit, analyzer-friendly React UI helpers built on `@casl/react`.
+
+```tsx
+import { AbilityProvider, Can, useCan } from "@permguard/react";
+
+<AbilityProvider value={ability}>
+  <Can action="delete" subject="Product" fallback={<span>Not allowed</span>}>
+    <DeleteButton />
+  </Can>
+</AbilityProvider>;
+```
+
+`Can` supports `field`, `not`, `fallback`, and a render-function child. `useCan(action, subject, field?)` subscribes to CASL ability updates through the official CASL React integration.
+
+These checks only control UI. Sensitive operations must call a server-side enforcement helper independently.
