@@ -9,7 +9,8 @@
   },
   "packageManager": "pnpm@10.15.1",
   "scripts": {
-    "check": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm test",
+    "build": "pnpm --filter @permguard/core build && pnpm --filter @permguard/server build && pnpm --filter @permguard/react build",
+    "check": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm test && pnpm build",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "lint": "eslint .",
@@ -18,9 +19,15 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.34.0",
+    "@testing-library/react": "^16.3.2",
     "@types/node": "^24.3.0",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
     "eslint": "^9.34.0",
+    "jsdom": "^30.0.1",
     "prettier": "^3.6.2",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
     "typescript": "^5.9.2",
     "typescript-eslint": "^8.41.0",
     "vitest": "^3.2.4"
