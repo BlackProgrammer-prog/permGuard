@@ -5,7 +5,7 @@ import type {
   SourceLocation,
 } from "./authorization.js";
 
-export const ANALYSIS_MODEL_VERSION = 1 as const;
+export const ANALYSIS_MODEL_VERSION = 2 as const;
 
 export interface PermissionRecord extends PermissionDescriptor {
   readonly id: string;
@@ -33,6 +33,22 @@ export interface ServerActionRecord {
   readonly name: string;
   readonly location: SourceLocation;
   readonly authorizationCheckIds: readonly string[];
+}
+
+export interface HttpRouteMatch {
+  readonly routeId: string;
+  readonly confidence: FindingConfidence;
+}
+
+export interface HttpClientRequestRecord {
+  readonly id: string;
+  readonly client: string;
+  readonly method: string;
+  readonly path: string;
+  readonly dynamic: boolean;
+  readonly location: SourceLocation;
+  readonly confidence: FindingConfidence;
+  readonly routeMatches: readonly HttpRouteMatch[];
 }
 
 export type AuthorizationCheckKind =
@@ -112,6 +128,7 @@ export interface AnalysisResult {
   readonly roles: readonly RoleRecord[];
   readonly routes: readonly RouteRecord[];
   readonly serverActions: readonly ServerActionRecord[];
+  readonly httpClientRequests: readonly HttpClientRequestRecord[];
   readonly authorizationChecks: readonly AuthorizationCheck[];
   readonly usages: readonly PermissionUsage[];
   readonly issues: readonly AuthorizationIssue[];
