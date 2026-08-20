@@ -1,4 +1,6 @@
 export { createAnalyzerProject } from "./create-analyzer-project.js";
+export { detectCaslUsage } from "./casl-usage/detect-casl-usage.js";
+export type { CaslUsageResult } from "./casl-usage/types.js";
 export { AnalyzerConfigError } from "./errors.js";
 export { getSourceLocation } from "./location.js";
 export {
