@@ -10,6 +10,8 @@ export type {
   AuthorizationGraphNode,
   AuthorizationGraphNodeType,
   CoverageMetric,
+  HttpClientRequestRecord,
+  HttpRouteMatch,
   PermissionRecord,
   PermissionUsage,
   PermissionUsageKind,

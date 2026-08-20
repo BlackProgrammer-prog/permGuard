@@ -7,7 +7,7 @@ import {
 
 describe("@permguard/core", () => {
   it("exposes a stable analysis model version", () => {
-    expect(ANALYSIS_MODEL_VERSION).toBe(1);
+    expect(ANALYSIS_MODEL_VERSION).toBe(2);
   });
 
   it("keeps findings and snapshots serializable", () => {
