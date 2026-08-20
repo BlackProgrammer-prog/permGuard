@@ -11,7 +11,7 @@ Work proceeds incrementally; later phases should not be implemented before their
 - [x] Phase 6: Route Handler discovery
 - [x] Phase 7: Server Action discovery
 - [x] Phase 8: CASL usage detection
-- [ ] Phase 9: Issue detection
+- [x] Phase 9: Issue detection
 - [ ] Phase 10: HTTP client usage discovery and client-to-route matching
 - [ ] Phase 11: Authorization graph
 - [ ] Phase 12: Coverage
@@ -20,8 +20,8 @@ Work proceeds incrementally; later phases should not be implemented before their
 - [ ] Phase 15: Authorization diff and CI
 - [ ] Phase 16: Hardening and documentation
 
-The next implementation phase is issue detection using the shared analysis
-records. Source files must not be reparsed by analysis passes.
+The next implementation phase is HTTP client usage discovery and
+client-to-route matching. Source files must not be reparsed by analysis passes.
 
 Phase 10 will discover calls made through native `fetch`, Axios, and configured
 HTTP client wrappers, then match statically knowable method/path pairs to Route

@@ -11,6 +11,8 @@ Analyzer regression-test inputs belong here. Fixtures are not example applicatio
   deliberately ignored functions.
 - `casl-usage`: CASL definitions, enforcement checks, React UI usages, aliases,
   arrays, dynamic values, and false-positive guards.
+- `issue-detection`: protected and missing boundaries, re-export association,
+  unknown permission references, and unused rules.
 
 Each discovery phase should add focused fixture projects instead of turning
 existing fixtures into general-purpose examples.
