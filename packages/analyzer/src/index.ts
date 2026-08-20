@@ -2,6 +2,11 @@ export { createAnalyzerProject } from "./create-analyzer-project.js";
 export { detectCaslUsage } from "./casl-usage/detect-casl-usage.js";
 export type { CaslUsageResult } from "./casl-usage/types.js";
 export { AnalyzerConfigError } from "./errors.js";
+export { detectAuthorizationIssues } from "./issue-detection/detect-authorization-issues.js";
+export type {
+  DetectAuthorizationIssuesInput,
+  IssueDetectionResult,
+} from "./issue-detection/types.js";
 export { getSourceLocation } from "./location.js";
 export {
   discoverRouteHandlers,
