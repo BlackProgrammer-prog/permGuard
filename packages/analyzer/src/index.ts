@@ -6,6 +6,7 @@ export {
   HTTP_METHODS,
   type HttpMethod,
 } from "./route-handlers/discover-route-handlers.js";
+export { discoverServerActions } from "./server-actions/discover-server-actions.js";
 export type {
   AnalyzerDiagnostic,
   AnalyzerProject,
