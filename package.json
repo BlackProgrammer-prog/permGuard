@@ -9,7 +9,7 @@
   },
   "packageManager": "pnpm@10.15.1",
   "scripts": {
-    "build": "pnpm --filter @permguard/core build && pnpm --filter @permguard/server build && pnpm --filter @permguard/react build",
+    "build": "pnpm --filter @permguard/core build && pnpm --filter @permguard/server build && pnpm --filter @permguard/react build && pnpm --filter @permguard/next build",
     "check": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm test && pnpm build",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
