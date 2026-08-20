@@ -23,6 +23,9 @@ Source is parsed once into a framework-independent analysis model. Graph and rep
 
 Dependencies flow toward `core`; circular dependencies are not allowed.
 
-## Analyzer decision gate
+## Analyzer AST
 
-Before analyzer implementation, an ADR must compare the TypeScript Compiler API, ts-morph, and SWC for TS/TSX support, locations, import resolution, call analysis, maintainability, and deterministic output.
+The analyzer uses one TypeScript Compiler API `Program` and one `TypeChecker`
+per analyzed project. Every discovery and detection pass must reuse those parsed
+`SourceFile` objects. The decision and tradeoffs are recorded in
+[`ADR 0001`](adr/0001-typescript-compiler-api.md).
