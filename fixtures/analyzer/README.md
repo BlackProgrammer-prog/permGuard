@@ -9,6 +9,8 @@ Analyzer regression-test inputs belong here. Fixtures are not example applicatio
 - `route-handlers-src`: the optional `src/app` convention.
 - `server-actions`: file-level and inline `"use server"` conventions plus
   deliberately ignored functions.
+- `casl-usage`: CASL definitions, enforcement checks, React UI usages, aliases,
+  arrays, dynamic values, and false-positive guards.
 
 Each discovery phase should add focused fixture projects instead of turning
 existing fixtures into general-purpose examples.

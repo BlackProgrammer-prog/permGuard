@@ -5,6 +5,7 @@ TypeScript AST-based static authorization analysis for PermGuard.
 ```ts
 import {
   createAnalyzerProject,
+  detectCaslUsage,
   discoverRouteHandlers,
   discoverServerActions,
 } from "@permguard/analyzer";
@@ -15,6 +16,7 @@ const project = createAnalyzerProject({
 
 const routes = discoverRouteHandlers(project);
 const serverActions = discoverServerActions(project);
+const caslUsage = detectCaslUsage(project);
 ```
 
 The analyzer creates one TypeScript `Program`, exposes its single
@@ -27,7 +29,8 @@ Route groups and parallel slots are removed from URL paths; private folders are
 ignored.
 
 Server Action discovery recognizes file-level and inline `"use server"`
-directives on async functions. CASL usage discovery is intentionally a later
-phase. Every pass must reuse the existing project instead of reparsing files.
+directives on async functions. CASL usage detection recognizes imported CASL
+definitions and checks plus PermGuard React UI usages. Every pass must reuse the
+existing project instead of reparsing files.
 
 See `docs/adr/0001-typescript-compiler-api.md` for the AST decision.
