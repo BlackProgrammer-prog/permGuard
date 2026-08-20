@@ -2,7 +2,7 @@
 
 PermGuard is authorization tooling for full-stack TypeScript applications. It complements [CASL](https://casl.js.org/) with framework integration, static analysis, coverage, reporting, and CI validation.
 
-Phases 0?5 are complete: repository architecture, CASL-aware foundations, server and React helpers, Next.js integration, and the TypeScript AST analyzer foundation. CASL remains the source of truth for permission evaluation.
+Phases 0?6 are complete: repository architecture, CASL-aware integrations, the TypeScript AST analyzer foundation, and Next.js Route Handler discovery. CASL remains the source of truth for permission evaluation.
 
 ## Requirements
 

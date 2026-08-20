@@ -4,6 +4,9 @@ Analyzer regression-test inputs belong here. Fixtures are not example applicatio
 
 - `foundation-basic`: valid TS/TSX files with a resolvable local import.
 - `foundation-invalid`: invalid TypeScript used to verify syntax diagnostics.
+- `route-handlers`: App Router methods, aliases, groups, slots, and ignored
+  private or Pages Router files.
+- `route-handlers-src`: the optional `src/app` convention.
 
-Later discovery phases should add focused fixture projects instead of turning
-these foundation fixtures into general-purpose examples.
+Each discovery phase should add focused fixture projects instead of turning
+existing fixtures into general-purpose examples.
