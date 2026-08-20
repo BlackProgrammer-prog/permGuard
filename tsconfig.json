@@ -18,6 +18,7 @@
     "target": "ES2022",
     "paths": {
       "@permguard/core": ["packages/core/src/index.ts"],
+      "@permguard/next": ["packages/next/src/index.ts"],
       "@permguard/react": ["packages/react/src/index.ts"],
       "@permguard/server": ["packages/server/src/index.ts"]
     },
