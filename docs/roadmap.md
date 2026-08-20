@@ -6,7 +6,7 @@ Work proceeds incrementally; later phases should not be implemented before their
 - [x] Phase 1: CASL foundation and shared types
 - [x] Phase 2: Server helpers
 - [x] Phase 3: React integration
-- [ ] Phase 4: Next.js integration
+- [x] Phase 4: Next.js integration
 - [ ] Phase 5: Analyzer foundation and AST decision
 - [ ] Phase 6: Route Handler discovery
 - [ ] Phase 7: Server Action discovery
@@ -19,4 +19,4 @@ Work proceeds incrementally; later phases should not be implemented before their
 - [ ] Phase 14: Authorization diff and CI
 - [ ] Phase 15: Hardening and documentation
 
-The next implementation phase is explicit Next.js App Router integration. Analyzer work must wait until an ADR compares the TypeScript Compiler API, ts-morph, and SWC.
+The next implementation phase is the analyzer foundation. Before implementation, an ADR must compare the TypeScript Compiler API, ts-morph, and SWC.
