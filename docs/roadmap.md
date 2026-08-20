@@ -12,7 +12,7 @@ Work proceeds incrementally; later phases should not be implemented before their
 - [x] Phase 7: Server Action discovery
 - [x] Phase 8: CASL usage detection
 - [x] Phase 9: Issue detection
-- [ ] Phase 10: HTTP client usage discovery and client-to-route matching
+- [x] Phase 10: HTTP client usage discovery and client-to-route matching
 - [ ] Phase 11: Authorization graph
 - [ ] Phase 12: Coverage
 - [ ] Phase 13: CLI
@@ -20,10 +20,5 @@ Work proceeds incrementally; later phases should not be implemented before their
 - [ ] Phase 15: Authorization diff and CI
 - [ ] Phase 16: Hardening and documentation
 
-The next implementation phase is HTTP client usage discovery and
-client-to-route matching. Source files must not be reparsed by analysis passes.
-
-Phase 10 will discover calls made through native `fetch`, Axios, and configured
-HTTP client wrappers, then match statically knowable method/path pairs to Route
-Handlers. Dynamic URLs and wrapper resolution must carry confidence instead of
-being presented as certain matches.
+The next implementation phase is the authorization graph. It consumes the
+analysis model and must not parse source files independently.
