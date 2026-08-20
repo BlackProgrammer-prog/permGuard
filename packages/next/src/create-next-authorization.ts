@@ -1,8 +1,5 @@
 import type { AnyAbility } from "@casl/ability";
-import {
-  isForbiddenError,
-  requireCan as enforceCan,
-} from "@permguard/server";
+import { isForbiddenError, requireCan as enforceCan } from "@permguard/server";
 
 import { forbiddenResponse } from "./responses.js";
 import type {
@@ -12,13 +9,10 @@ import type {
 } from "./route-handler.js";
 
 export type AbilityResolver<TAbility extends AnyAbility> = () =>
-  | TAbility
-  | Promise<TAbility>;
+  TAbility | Promise<TAbility>;
 
 export interface NextAuthorization<TAbility extends AnyAbility> {
-  requireCan(
-    ...permission: Parameters<TAbility["can"]>
-  ): Promise<TAbility>;
+  requireCan(...permission: Parameters<TAbility["can"]>): Promise<TAbility>;
 
   withAuthorization<
     TContext extends PermGuardRouteContext = PermGuardRouteContext,
