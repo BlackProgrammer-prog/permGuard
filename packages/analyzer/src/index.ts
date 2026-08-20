@@ -8,6 +8,8 @@ export type {
   IssueDetectionResult,
 } from "./issue-detection/types.js";
 export { getSourceLocation } from "./location.js";
+export { detectHttpClientUsage } from "./http-clients/detect-http-client-usage.js";
+export type { DetectHttpClientUsageOptions } from "./http-clients/types.js";
 export {
   discoverRouteHandlers,
   HTTP_METHODS,
