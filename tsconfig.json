@@ -20,6 +20,7 @@
       "@permguard/analyzer": ["packages/analyzer/src/index.ts"],
       "@permguard/cli": ["packages/cli/src/index.ts"],
       "@permguard/core": ["packages/core/src/index.ts"],
+      "@permguard/diff": ["packages/diff/src/index.ts"],
       "@permguard/graph": ["packages/graph/src/index.ts"],
       "@permguard/next": ["packages/next/src/index.ts"],
       "@permguard/react": ["packages/react/src/index.ts"],
