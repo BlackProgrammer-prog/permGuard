@@ -1,6 +1,11 @@
 export { createAnalyzerProject } from "./create-analyzer-project.js";
 export { detectCaslUsage } from "./casl-usage/detect-casl-usage.js";
 export type { CaslUsageResult } from "./casl-usage/types.js";
+export { calculateAuthorizationCoverage } from "./coverage/calculate-authorization-coverage.js";
+export type {
+  AuthorizationCoverageResult,
+  CalculateAuthorizationCoverageInput,
+} from "./coverage/types.js";
 export { AnalyzerConfigError } from "./errors.js";
 export { detectAuthorizationIssues } from "./issue-detection/detect-authorization-issues.js";
 export type {
