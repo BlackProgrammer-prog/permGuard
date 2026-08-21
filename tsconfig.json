@@ -17,15 +17,15 @@
     "strict": true,
     "target": "ES2022",
     "paths": {
-      "@permguard/analyzer": ["packages/analyzer/src/index.ts"],
-      "@permguard/cli": ["packages/cli/src/index.ts"],
-      "@permguard/core": ["packages/core/src/index.ts"],
-      "@permguard/diff": ["packages/diff/src/index.ts"],
-      "@permguard/graph": ["packages/graph/src/index.ts"],
-      "@permguard/next": ["packages/next/src/index.ts"],
-      "@permguard/react": ["packages/react/src/index.ts"],
-      "@permguard/reporter": ["packages/reporter/src/index.ts"],
-      "@permguard/server": ["packages/server/src/index.ts"]
+      "@ironpermjs/analyzer": ["packages/analyzer/src/index.ts"],
+      "@ironpermjs/cli": ["packages/cli/src/index.ts"],
+      "@ironpermjs/core": ["packages/core/src/index.ts"],
+      "@ironpermjs/diff": ["packages/diff/src/index.ts"],
+      "@ironpermjs/graph": ["packages/graph/src/index.ts"],
+      "@ironpermjs/next": ["packages/next/src/index.ts"],
+      "@ironpermjs/react": ["packages/react/src/index.ts"],
+      "@ironpermjs/reporter": ["packages/reporter/src/index.ts"],
+      "@ironpermjs/server": ["packages/server/src/index.ts"]
     },
     "types": ["node"]
   },
