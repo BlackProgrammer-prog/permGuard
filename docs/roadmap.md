@@ -15,10 +15,10 @@ Work proceeds incrementally; later phases should not be implemented before their
 - [x] Phase 10: HTTP client usage discovery and client-to-route matching
 - [x] Phase 11: Authorization graph
 - [x] Phase 12: Coverage
-- [ ] Phase 13: CLI
+- [x] Phase 13: CLI
 - [ ] Phase 14: HTML reporter
 - [ ] Phase 15: Authorization diff and CI
 - [ ] Phase 16: Hardening and documentation
 
-The next implementation phase is the CLI, which will orchestrate analyzer,
-graph, and coverage packages without containing analysis business logic.
+The next implementation phase is the offline HTML reporter. It will consume
+AnalysisResult and contain no source analysis logic.
