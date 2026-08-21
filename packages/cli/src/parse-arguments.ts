@@ -1,4 +1,4 @@
-export type CliCommand = "scan" | "graph" | "help" | "version";
+export type CliCommand = "scan" | "graph" | "report" | "help" | "version";
 
 export interface CliOptions {
   readonly command: CliCommand;
@@ -50,7 +50,7 @@ export function parseCliArguments(args: readonly string[]): CliOptions {
       command = "version";
       continue;
     }
-    if (argument === "scan" || argument === "graph") {
+    if (argument === "scan" || argument === "graph" || argument === "report") {
       if (commandSet) {
         throw new CliArgumentError("Only one command may be provided.");
       }

@@ -38,6 +38,7 @@ describe("parseCliArguments", () => {
   it("recognizes help, version, and JSON output flags", () => {
     expect(parseCliArguments(["--help"]).command).toBe("help");
     expect(parseCliArguments(["--version"]).command).toBe("version");
+    expect(parseCliArguments(["report"]).command).toBe("report");
     expect(parseCliArguments(["scan", "--json"]).json).toBe(true);
   });
 
