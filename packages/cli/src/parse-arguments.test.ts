@@ -7,6 +7,8 @@ describe("parseCliArguments", () => {
       command: "scan",
       rootDir: ".",
       json: false,
+      ci: false,
+      failOn: "HIGH",
       additionalClientModules: [],
     });
   });
@@ -31,6 +33,8 @@ describe("parseCliArguments", () => {
       json: false,
       outputPath: "graph.json",
       tsconfigPath: "tsconfig.app.json",
+      ci: false,
+      failOn: "HIGH",
       additionalClientModules: ["@/lib/api", "custom-fetch"],
     });
   });
@@ -42,10 +46,30 @@ describe("parseCliArguments", () => {
     expect(parseCliArguments(["scan", "--json"]).json).toBe(true);
   });
 
-  it("rejects unknown options and duplicate roots", () => {
+  it("parses diff baseline and CI severity", () => {
+    expect(
+      parseCliArguments([
+        "diff",
+        "--baseline",
+        "baseline.json",
+        "--fail-on",
+        "warning",
+      ]),
+    ).toMatchObject({
+      command: "diff",
+      baselinePath: "baseline.json",
+      ci: true,
+      failOn: "WARNING",
+    });
+  });
+
+  it("rejects invalid options, duplicate roots, and missing baselines", () => {
     expect(() => parseCliArguments(["--unknown"])).toThrow(CliArgumentError);
     expect(() => parseCliArguments(["one", "two"])).toThrow(
       "Only one project root",
+    );
+    expect(() => parseCliArguments(["diff"])).toThrow(
+      "diff requires --baseline",
     );
   });
 });
