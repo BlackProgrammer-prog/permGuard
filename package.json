@@ -15,8 +15,13 @@
     "format:check": "prettier --check .",
     "lint": "eslint .",
     "permguard": "node packages/cli/dist/bin.js",
+    "release:dry-run": "pnpm check && node scripts/release-packages.mjs dry-run",
+    "release:pack": "pnpm build && node scripts/release-packages.mjs pack",
+    "release:publish": "pnpm check && node scripts/release-packages.mjs publish",
+    "release:smoke": "pnpm release:verify && node scripts/smoke-packed-packages.mjs",
+    "release:verify": "pnpm build && node scripts/release-packages.mjs verify",
     "test": "vitest run --passWithNoTests",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit && tsc -p examples/next-basic/tsconfig.json"
   },
   "devDependencies": {
     "@eslint/js": "^9.34.0",
