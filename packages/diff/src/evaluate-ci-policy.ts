@@ -1,4 +1,4 @@
-import type { AnalysisResult, IssueSeverity } from "@permguard/core";
+import type { AnalysisResult, IssueSeverity } from "@ironpermjs/core";
 import type { CiPolicyOptions, CiPolicyResult } from "./types.js";
 
 const SEVERITY_RANK: Readonly<Record<IssueSeverity, number>> = {

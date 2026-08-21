@@ -1,4 +1,4 @@
-import { ANALYSIS_MODEL_VERSION, type AnalysisResult } from "@permguard/core";
+import { ANALYSIS_MODEL_VERSION, type AnalysisResult } from "@ironpermjs/core";
 import { describe, expect, it } from "vitest";
 import { diffAnalysisResults } from "./diff-analysis-results.js";
 import { evaluateCiPolicy } from "./evaluate-ci-policy.js";
@@ -28,7 +28,7 @@ function result(overrides: Partial<AnalysisResult> = {}): AnalysisResult {
 
 const readCheck = {
   id: "check:read",
-  kind: "permguard-require-can",
+  kind: "ironpermjs-require-can",
   permission: { action: "read", subject: "Product" },
   location,
   confidence: "certain",

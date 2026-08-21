@@ -1,11 +1,11 @@
-# @permguard/diff
+# @ironpermjs/diff
 
 Semantic authorization diff and CI severity policy evaluation.
 
     import {
       diffAnalysisResults,
       evaluateCiPolicy,
-    } from "@permguard/diff";
+    } from "@ironpermjs/diff";
 
     const diff = diffAnalysisResults(baseline, current);
     const policy = evaluateCiPolicy(current, { failOn: "HIGH" });

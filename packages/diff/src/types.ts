@@ -2,7 +2,7 @@ import type {
   AnalysisResult,
   AuthorizationIssue,
   IssueSeverity,
-} from "@permguard/core";
+} from "@ironpermjs/core";
 
 export type AuthorizationDiffChangeKind = "added" | "removed" | "changed";
 

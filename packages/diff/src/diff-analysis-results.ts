@@ -3,7 +3,7 @@ import type {
   PermissionRecord,
   RouteRecord,
   ServerActionRecord,
-} from "@permguard/core";
+} from "@ironpermjs/core";
 import type {
   AuthorizationDiff,
   AuthorizationDiffChange,
