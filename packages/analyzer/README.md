@@ -4,6 +4,7 @@ TypeScript AST-based static authorization analysis for PermGuard.
 
 ```ts
 import {
+  calculateAuthorizationCoverage,
   createAnalyzerProject,
   detectAuthorizationIssues,
   detectCaslUsage,
@@ -23,6 +24,11 @@ const analysis = detectAuthorizationIssues({
   serverActions,
   caslUsage,
 });
+const coverage = calculateAuthorizationCoverage({
+  routes: analysis.routes,
+  serverActions: analysis.serverActions,
+  authorizationChecks: caslUsage.authorizationChecks,
+});
 ```
 
 The analyzer creates one TypeScript `Program` and reuses its source files and
@@ -30,5 +36,7 @@ The analyzer creates one TypeScript `Program` and reuses its source files and
 produce authorization boundaries. CASL usage detection produces definitions,
 checks, and UI usages. Issue detection associates checks with function bodies
 and reports missing, unknown, unused, or unverifiable authorization findings.
+Coverage measures recognized server-side enforcement presence and does not
+claim that the discovered policy is correct or secure.
 
 See `docs/adr/0001-typescript-compiler-api.md` for the AST decision.

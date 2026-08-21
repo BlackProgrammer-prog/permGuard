@@ -14,11 +14,11 @@ Work proceeds incrementally; later phases should not be implemented before their
 - [x] Phase 9: Issue detection
 - [x] Phase 10: HTTP client usage discovery and client-to-route matching
 - [x] Phase 11: Authorization graph
-- [ ] Phase 12: Coverage
+- [x] Phase 12: Coverage
 - [ ] Phase 13: CLI
 - [ ] Phase 14: HTML reporter
 - [ ] Phase 15: Authorization diff and CI
 - [ ] Phase 16: Hardening and documentation
 
-The next implementation phase is authorization coverage. It will measure
-recognized enforcement presence without claiming that policy is correct.
+The next implementation phase is the CLI, which will orchestrate analyzer,
+graph, and coverage packages without containing analysis business logic.
