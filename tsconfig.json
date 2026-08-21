@@ -23,6 +23,7 @@
       "@permguard/graph": ["packages/graph/src/index.ts"],
       "@permguard/next": ["packages/next/src/index.ts"],
       "@permguard/react": ["packages/react/src/index.ts"],
+      "@permguard/reporter": ["packages/reporter/src/index.ts"],
       "@permguard/server": ["packages/server/src/index.ts"]
     },
     "types": ["node"]
