@@ -1,13 +1,10 @@
 {
-  "name": "@permguard/cli",
+  "name": "@permguard/diff",
   "version": "0.1.0",
-  "description": "Command-line orchestration for PermGuard authorization analysis",
+  "description": "Authorization diff and CI policy evaluation for PermGuard",
   "license": "MIT",
   "type": "module",
   "sideEffects": false,
-  "bin": {
-    "permguard": "./dist/bin.js"
-  },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
@@ -23,10 +20,6 @@
     "build": "tsc -p tsconfig.build.json"
   },
   "dependencies": {
-    "@permguard/analyzer": "workspace:*",
-    "@permguard/core": "workspace:*",
-    "@permguard/diff": "workspace:*",
-    "@permguard/graph": "workspace:*",
-    "@permguard/reporter": "workspace:*"
+    "@permguard/core": "workspace:*"
   }
 }
