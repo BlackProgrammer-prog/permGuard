@@ -2,7 +2,30 @@
   "name": "@permguard/diff",
   "version": "0.1.0",
   "description": "Authorization diff and CI policy evaluation for PermGuard",
+  "keywords": [
+    "authorization",
+    "permissions",
+    "diff",
+    "ci"
+  ],
+  "homepage": "https://github.com/BlackProgrammer-prog/permGuard#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BlackProgrammer-prog/permGuard.git",
+    "directory": "packages/diff"
+  },
+  "bugs": {
+    "url": "https://github.com/BlackProgrammer-prog/permGuard/issues"
+  },
   "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true,
+    "registry": "https://registry.npmjs.org/"
+  },
   "type": "module",
   "sideEffects": false,
   "main": "./dist/index.js",
