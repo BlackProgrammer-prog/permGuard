@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/brand/ironpermjs-banner.png" alt="IronPermJS — Authorization and Permission Management for JavaScript" width="720" />
+</p>
+
 # IronPermJS
 
 [![CI](https://github.com/BlackProgrammer-prog/permGuard/actions/workflows/ci.yml/badge.svg)](https://github.com/BlackProgrammer-prog/permGuard/actions/workflows/ci.yml)

@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://raw.githubusercontent.com/BlackProgrammer-prog/permGuard/main/assets/brand/ironpermjs-icon.png" alt="IronPermJS" width="160" />
+</p>
+
 # @ironpermjs/analyzer
 
 TypeScript AST-based static authorization analysis for IronPermJS.
