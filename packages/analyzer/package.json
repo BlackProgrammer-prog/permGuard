@@ -2,7 +2,30 @@
   "name": "@permguard/analyzer",
   "version": "0.1.0",
   "description": "TypeScript AST-based static authorization analysis for PermGuard",
+  "keywords": [
+    "authorization",
+    "casl",
+    "static-analysis",
+    "typescript"
+  ],
+  "homepage": "https://github.com/BlackProgrammer-prog/permGuard#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BlackProgrammer-prog/permGuard.git",
+    "directory": "packages/analyzer"
+  },
+  "bugs": {
+    "url": "https://github.com/BlackProgrammer-prog/permGuard/issues"
+  },
   "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true,
+    "registry": "https://registry.npmjs.org/"
+  },
   "type": "module",
   "sideEffects": false,
   "main": "./dist/index.js",
