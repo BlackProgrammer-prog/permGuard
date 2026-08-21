@@ -1,12 +1,12 @@
 # CLI reference
 
-The `permguard` command orchestrates analysis, graph construction, reporting, diffing, and CI policy. It does not contain the detection logic itself.
+The `ironpermjs` command orchestrates analysis, graph construction, reporting, diffing, and CI policy. It does not contain the detection logic itself.
 
 ## Installation
 
 ```bash
-pnpm add -D @permguard/cli
-pnpm exec permguard --help
+pnpm add -D @ironpermjs/cli
+pnpm exec ironpermjs --help
 ```
 
 The default command is `scan`, and the default root is the current directory.
@@ -14,7 +14,7 @@ The default command is `scan`, and the default root is the current directory.
 ## Command syntax
 
 ```text
-permguard <command> [root] [options]
+ironpermjs <command> [root] [options]
 ```
 
 ### scan
@@ -22,15 +22,15 @@ permguard <command> [root] [options]
 Analyze a project and print a compact human-readable summary:
 
 ```bash
-permguard scan .
-permguard .
+ironpermjs scan .
+ironpermjs .
 ```
 
 Emit the full `AnalysisResult` JSON:
 
 ```bash
-permguard scan . --json
-permguard scan . --json --output analysis.json
+ironpermjs scan . --json
+ironpermjs scan . --json --output analysis.json
 ```
 
 ### graph
@@ -38,7 +38,7 @@ permguard scan . --json --output analysis.json
 Write the authorization graph as JSON:
 
 ```bash
-permguard graph . --output authorization-graph.json
+ironpermjs graph . --output authorization-graph.json
 ```
 
 The graph includes stable nodes and edges for permissions, routes, methods, Server Actions, authorization checks, files, resources, and discovered HTTP client calls.
@@ -48,7 +48,7 @@ The graph includes stable nodes and edges for permissions, routes, methods, Serv
 Render a self-contained offline HTML dashboard:
 
 ```bash
-permguard report . --output permguard-report.html
+ironpermjs report . --output ironpermjs-report.html
 ```
 
 The report contains overview metrics, boundaries, issues, coverage, permissions, usages, and the authorization graph. It can be opened directly from disk.
@@ -58,14 +58,14 @@ The report contains overview metrics, boundaries, issues, coverage, permissions,
 Compare the current project with a previous versioned `AnalysisResult`:
 
 ```bash
-permguard diff . --baseline analysis-main.json
-permguard diff . --baseline analysis-main.json --json
+ironpermjs diff . --baseline analysis-main.json
+ironpermjs diff . --baseline analysis-main.json --json
 ```
 
 Create a suitable baseline with:
 
 ```bash
-permguard scan . --json --output analysis-main.json
+ironpermjs scan . --json --output analysis-main.json
 ```
 
 A malformed baseline or incompatible model is treated as an analysis error.
@@ -99,7 +99,7 @@ await api.delete("/products/42");
 register the exact import specifier:
 
 ```bash
-permguard scan . --client-module "@/lib/api-client"
+ironpermjs scan . --client-module "@/lib/api-client"
 ```
 
 Repeat the option for more than one wrapper. A configured module raises recognition, but dynamic method or URL resolution may still reduce confidence.
@@ -120,26 +120,26 @@ Do not collapse every non-zero result into “security issue.” Code 1 means th
 Fail on high-impact findings:
 
 ```bash
-permguard scan . --ci --fail-on HIGH
+ironpermjs scan . --ci --fail-on HIGH
 ```
 
 Fail on every reported severity:
 
 ```bash
-permguard scan . --ci --fail-on INFO
+ironpermjs scan . --ci --fail-on INFO
 ```
 
 Keep the offline report as a CI artifact even when policy fails:
 
 ```yaml
-- run: pnpm exec permguard report . -o permguard-report.html
+- run: pnpm exec ironpermjs report . -o ironpermjs-report.html
   if: always()
 ```
 
 ## Performance model
 
-PermGuard creates one TypeScript `Program` and one `TypeChecker` per scan. Discovery passes reuse parsed `SourceFile` instances. Use `--tsconfig` to avoid analyzing generated or unrelated source that your application does not compile.
+IronPermJS creates one TypeScript `Program` and one `TypeChecker` per scan. Discovery passes reuse parsed `SourceFile` instances. Use `--tsconfig` to avoid analyzing generated or unrelated source that your application does not compile.
 
 ## Output stability
 
-The analysis model has a `modelVersion`. Collections and stable identifiers are deterministic for the same source and configuration. Consumers should still validate `modelVersion` before loading a baseline produced by another PermGuard release.
+The analysis model has a `modelVersion`. Collections and stable identifiers are deterministic for the same source and configuration. Consumers should still validate `modelVersion` before loading a baseline produced by another IronPermJS release.

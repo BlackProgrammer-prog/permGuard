@@ -1,7 +1,7 @@
 # Phase 8: CASL usage detection
 
 Phase 8 detects statically knowable CASL permission definitions, server-side
-authorization checks, and PermGuard React UI usages. It emits existing core
+authorization checks, and IronPermJS React UI usages. It emits existing core
 analysis records and does not evaluate permissions or create issues.
 
 ## Permission definitions
@@ -25,14 +25,14 @@ The pass recognizes:
 - `ability.can()` on an ability produced by an imported CASL
   `AbilityBuilder.build()` binding
 - imported `ForbiddenError.from(ability).throwUnlessCan()`
-- imported PermGuard `requireCan()` from `@permguard/server`
+- imported IronPermJS `requireCan()` from `@ironpermjs/server`
 
 These become `AuthorizationCheck` records and matching `PermissionUsage`
 records with kind `check`.
 
 ## UI usages
 
-Imported `<Can>` and `useCan()` helpers from `@permguard/react` become
+Imported `<Can>` and `useCan()` helpers from `@ironpermjs/react` become
 `PermissionUsage` records with kind `ui`. UI usage is never treated as a
 server-side authorization boundary.
 
@@ -46,7 +46,7 @@ guessed. Import-backed and type-resolved findings use `certain` confidence.
 
 - object and class-instance subjects are not converted to subject names yet
 - permission aliases and computed values are not evaluated
-- custom wrappers around CASL and PermGuard require future configuration support
+- custom wrappers around CASL and IronPermJS require future configuration support
 - checks are not associated with Route Handlers or Server Actions in this phase
 - issues such as missing, unknown, and mismatched permissions belong to phase 9
 

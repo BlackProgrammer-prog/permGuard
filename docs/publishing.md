@@ -1,15 +1,15 @@
-# Publishing PermGuard to npm
+# Publishing IronPermJS to npm
 
-PermGuard is a fixed-version monorepo: all nine public packages use the same version and are released together.
+IronPermJS is a fixed-version monorepo: all nine public packages use the same version and are released together.
 
 ## Important: choose an npm scope you own
 
-The repository currently names packages `@permguard/*`. The `@permguard` scope is already associated with another product on npm. Public publication will fail unless your npm account is a member of that organization.
+The repository currently names packages `@ironpermjs/*`. The `@ironpermjs` scope is already associated with another product on npm. Public publication will fail unless your npm account is a member of that organization.
 
 Before the first release, choose one of these paths:
 
-1. Prove that your npm account owns or has publish access to `@permguard`.
-2. Rename every `@permguard/*` package and internal import to a scope you own, such as your npm organization.
+1. Prove that your npm account owns or has publish access to `@ironpermjs`.
+2. Rename every `@ironpermjs/*` package and internal import to a scope you own, such as your npm organization.
 3. Use unscoped package names only after checking every name individually.
 
 Do not publish with a borrowed or ambiguous scope. After renaming, run `pnpm install`, `pnpm check`, and `pnpm release:verify`.
@@ -99,7 +99,7 @@ After every package exists:
 2. open package settings and Trusted Publisher
 3. choose GitHub Actions
 4. set organization/user to `BlackProgrammer-prog`
-5. set repository to `permGuard`
+5. set repository to `IronPermJS`
 6. set workflow filename to `publish.yml`
 7. leave the environment blank unless the workflow is changed to use one
 8. repeat for all nine packages
@@ -148,12 +148,12 @@ The workflow rejects a tag that does not equal the package version.
 ## Post-release smoke test
 
 ```bash
-mkdir permguard-smoke
-cd permguard-smoke
+mkdir ironpermjs-smoke
+cd ironpermjs-smoke
 pnpm init
 pnpm add -D @your-scope/cli
-pnpm exec permguard --version
-pnpm exec permguard --help
+pnpm exec ironpermjs --version
+pnpm exec ironpermjs --help
 ```
 
 For runtime packages, import each installed package from a minimal ESM script and run Node.

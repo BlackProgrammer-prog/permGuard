@@ -16,16 +16,16 @@ GitHub Actions does not rely on your shell profile; it installs pnpm explicitly.
 Run from the application root or specify one:
 
 ```bash
-permguard scan . --tsconfig ./tsconfig.app.json
+ironpermjs scan . --tsconfig ./tsconfig.app.json
 ```
 
 The path is resolved from the current working directory.
 
 ## A valid CASL check was not detected
 
-Prefer direct, imported CASL or PermGuard APIs. Highly dynamic aliases may be intentionally unresolved. Check that:
+Prefer direct, imported CASL or IronPermJS APIs. Highly dynamic aliases may be intentionally unresolved. Check that:
 
-- the function is imported from CASL or a recognized PermGuard package
+- the function is imported from CASL or a recognized IronPermJS package
 - action and subject are string literals or supported literal arrays
 - the boundary implementation is included by the selected tsconfig
 - generated files are present before analysis
@@ -37,7 +37,7 @@ Open an issue with a minimal fixture if a common pattern is missing.
 Axios, Axios instances, `fetch`, and `ky` are built in. For an imported wrapper:
 
 ```bash
-permguard scan . --client-module "@/lib/api-client"
+ironpermjs scan . --client-module "@/lib/api-client"
 ```
 
 Use the exact module specifier from the import. Computed URLs and ambiguous dynamic segments may only produce low-confidence matches.
@@ -47,7 +47,7 @@ Use the exact module specifier from the import. Computed URLs and ambiguous dyna
 The analysis completed, but findings met the configured severity threshold. Read stderr and generate a report:
 
 ```bash
-permguard report . -o permguard-report.html
+ironpermjs report . -o ironpermjs-report.html
 ```
 
 Exit code 1 instead means configuration, filesystem, baseline, or analysis failure.
@@ -62,7 +62,7 @@ Create the baseline with `scan --json`, not `graph --json`. Confirm its `modelVe
 
 ## npm publication says the scope is unavailable
 
-The package scope must belong to your npm account or organization. The current `@permguard` scope is not assumed to be owned by this repository. Follow [publishing.md](publishing.md) and rename to a verified scope before publication.
+The package scope must belong to your npm account or organization. The current `@ironpermjs` scope is not assumed to be owned by this repository. Follow [publishing.md](publishing.md) and rename to a verified scope before publication.
 
 ## Tarball verification fails
 

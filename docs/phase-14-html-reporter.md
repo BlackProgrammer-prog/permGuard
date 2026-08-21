@@ -17,7 +17,7 @@ remains safe to inspect when source paths or finding text contain HTML syntax.
 
 ## CLI
 
-    pnpm permguard report . --output reports/permguard.html
+    pnpm ironpermjs report . --output reports/ironpermjs.html
 
 Without output, HTML is written to stdout. The scan JSON format remains
 available through scan --json.

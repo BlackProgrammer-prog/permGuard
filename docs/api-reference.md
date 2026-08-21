@@ -2,9 +2,9 @@
 
 This page describes the intended public surface. Import from each package root; internal source paths are not public API.
 
-## @permguard/core
+## @ironpermjs/core
 
-`@permguard/core` contains framework-independent model and authorization types. It does not evaluate permissions and does not depend on React, Next.js, the CLI, or reporters.
+`@ironpermjs/core` contains framework-independent model and authorization types. It does not evaluate permissions and does not depend on React, Next.js, the CLI, or reporters.
 
 Important exports:
 
@@ -17,7 +17,7 @@ Important exports:
 
 Use these types when building a custom reporter or CI integration.
 
-## @permguard/server
+## @ironpermjs/server
 
 ### requireCan
 
@@ -28,7 +28,7 @@ requireCan(ability, action, subject, field?)
 Delegates denial semantics to CASL's `ForbiddenError.from(ability).throwUnlessCan()`. It returns `void` when allowed and throws when denied.
 
 ```ts
-import { requireCan } from "@permguard/server";
+import { requireCan } from "@ironpermjs/server";
 
 requireCan(ability, "update", "Product");
 ```
@@ -53,7 +53,7 @@ Evaluates a fixed list of action/subject/optional-field candidates, keeps allowe
 
 Re-exported from `@casl/ability` for convenience.
 
-## @permguard/react
+## @ironpermjs/react
 
 ### AbilityProvider and useAbility
 
@@ -92,7 +92,7 @@ Subscribes through `@casl/react` and reevaluates when the current ability change
 
 React APIs are UI controls, not server security boundaries.
 
-## @permguard/next
+## @ironpermjs/next
 
 ### createNextAuthorization
 
@@ -104,7 +104,7 @@ const authorization = createNextAuthorization(resolveAbility);
 
 Returned methods:
 
-- `requireCan(action, subject, field?)`: resolves an ability, enforces through `@permguard/server`, and returns the ability
+- `requireCan(action, subject, field?)`: resolves an ability, enforces through `@ironpermjs/server`, and returns the ability
 - `withAuthorization(permissionTuple, handler, options?)`: wraps a Next.js App Router Route Handler
 
 ### withAuthorization options
@@ -127,9 +127,9 @@ Creates the default JSON 403 response:
 
 ### Route types
 
-The package exports `AppRouteHandler`, `PermGuardRouteContext`, `RouteParameters`, and `WithAuthorizationOptions` for typed wrappers.
+The package exports `AppRouteHandler`, `IronPermJSRouteContext`, `RouteParameters`, and `WithAuthorizationOptions` for typed wrappers.
 
-## @permguard/analyzer
+## @ironpermjs/analyzer
 
 Low-level AST APIs:
 
@@ -142,17 +142,17 @@ Low-level AST APIs:
 - `calculateAuthorizationCoverage`
 - `getSourceLocation`
 
-The recommended high-level entry point is `analyzeProject()` from `@permguard/cli`, which runs passes in the supported order. Low-level APIs are useful for custom tooling and tests.
+The recommended high-level entry point is `analyzeProject()` from `@ironpermjs/cli`, which runs passes in the supported order. Low-level APIs are useful for custom tooling and tests.
 
 The project object holds one TypeScript `Program`, `TypeChecker`, stable source list, normalized root, and diagnostics.
 
-## @permguard/graph
+## @ironpermjs/graph
 
 ### buildAuthorizationGraph
 
 Consumes analysis records and returns a deterministic graph. It never parses source code. Inputs can include permissions, routes, Server Actions, client requests, authorization checks, usages, and roles.
 
-## @permguard/diff
+## @ironpermjs/diff
 
 ### diffAnalysisResults
 
@@ -170,7 +170,7 @@ const result = evaluateCiPolicy(analysis, { failOn: "HIGH" });
 
 Returns the normalized threshold, blocking issues, and `passed`. It does not terminate the process.
 
-## @permguard/reporter
+## @ironpermjs/reporter
 
 ### renderJsonReport
 
@@ -180,7 +180,7 @@ Returns a deterministic JSON representation of an `AnalysisResult`.
 
 Returns one self-contained static HTML document. Options currently include `projectName`. The output performs no network requests and needs no report server.
 
-## @permguard/cli
+## @ironpermjs/cli
 
 ### analyzeProject
 

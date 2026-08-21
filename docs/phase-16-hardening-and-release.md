@@ -39,7 +39,7 @@ The documentation now includes a project overview, end-to-end tutorial, CLI refe
 
 ## Scope decision
 
-The code currently uses `@permguard/*`, but that npm scope is already associated with a different product. Publication remains intentionally blocked until the maintainer confirms access or renames packages to a scope they own. This is an external namespace decision, not something repository automation can safely guess.
+The code uses `@ironpermjs/*`. Publication requires the maintainer to confirm ownership of that npm scope and configure trusted publishing for the renamed GitHub repository.
 
 ## Verification contract
 

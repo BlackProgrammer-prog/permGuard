@@ -2,7 +2,7 @@
 
 ## Phase 1: CASL foundation and shared types
 
-`@permguard/core` contains the framework-independent contracts consumed by future analyzer, graph, reporter, and CLI packages:
+`@ironpermjs/core` contains the framework-independent contracts consumed by future analyzer, graph, reporter, and CLI packages:
 
 - versioned `AnalysisResult`
 - permission, role, route, Server Action, usage, and authorization-check records
@@ -15,7 +15,7 @@ It does not wrap or replace CASL evaluation.
 
 ## Phase 2: server helpers
 
-`@permguard/server` exposes:
+`@ironpermjs/server` exposes:
 
 - `requireCan(ability, ...permission)`
 - `isForbiddenError(error)`
@@ -28,7 +28,7 @@ Snapshots accept an explicit set of candidates, deduplicate allowed entries, and
 
 ## Phase 3: React integration
 
-`@permguard/react` reuses the official `@casl/react` Provider and reactive hook. It adds:
+`@ironpermjs/react` reuses the official `@casl/react` Provider and reactive hook. It adds:
 
 - `<Can action subject />`, whose explicit props are easy for static analysis to recognize
 - `useCan(action, subject, field?)`

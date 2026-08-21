@@ -21,7 +21,7 @@ consume it and write framework-independent records into the core
 
 - `createAnalyzerProject(options)`: creates the parse-once context.
 - `getSourceLocation(file, position)`: converts zero-based compiler positions
-  into one-based PermGuard locations.
+  into one-based IronPermJS locations.
 - `AnalyzerConfigError`: reports unreadable or invalid tsconfig files.
 - `AnalyzerProject.sourceFiles`: deterministic application root files.
 - `AnalyzerProject.checker`: shared symbol and import resolver.

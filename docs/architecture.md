@@ -1,6 +1,6 @@
 # Architecture
 
-PermGuard complements CASL; it does not implement a second permission engine. CASL answers whether an action is allowed, while PermGuard locates definitions, usages, enforcement points, gaps, and changes.
+IronPermJS complements CASL; it does not implement a second permission engine. CASL answers whether an action is allowed, while IronPermJS locates definitions, usages, enforcement points, gaps, and changes.
 
 ## Data flow
 

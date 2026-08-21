@@ -1,18 +1,18 @@
 # Getting started
 
-This tutorial adds CASL authorization to a Next.js App Router project, enforces it on the server, renders permission-aware UI, and audits the result with PermGuard.
+This tutorial adds CASL authorization to a Next.js App Router project, enforces it on the server, renders permission-aware UI, and audits the result with IronPermJS.
 
 ## 1. Install the smallest useful set
 
 For a Next.js application with React UI and static analysis:
 
 ```bash
-pnpm add @casl/ability @permguard/server @permguard/next
-pnpm add @permguard/react
-pnpm add -D @permguard/cli
+pnpm add @casl/ability @ironpermjs/server @ironpermjs/next
+pnpm add @ironpermjs/react
+pnpm add -D @ironpermjs/cli
 ```
 
-You can omit `@permguard/react` when the browser does not need permission-aware UI.
+You can omit `@ironpermjs/react` when the browser does not need permission-aware UI.
 
 ## 2. Define application permission vocabulary
 
@@ -98,7 +98,7 @@ Validate session data on the server. Never trust a role submitted by the client.
 
 ```ts
 // src/auth/authorization.ts
-import { createNextAuthorization } from "@permguard/next";
+import { createNextAuthorization } from "@ironpermjs/next";
 import { defineAbilityFor } from "./ability";
 import { requireUser } from "./session";
 
@@ -160,7 +160,7 @@ For conditional CASL rules, load the subject and use the lower-level server help
 
 ```ts
 import { subject } from "@casl/ability";
-import { requireCan } from "@permguard/server";
+import { requireCan } from "@ironpermjs/server";
 
 const user = await requireUser();
 const ability = defineAbilityFor(user);
@@ -179,7 +179,7 @@ For a client-side ability that is already safe to expose:
 ```tsx
 "use client";
 
-import { AbilityProvider, Can } from "@permguard/react";
+import { AbilityProvider, Can } from "@ironpermjs/react";
 import type { AppAbility } from "@/auth/types";
 
 export function ProductToolbar({ ability }: { ability: AppAbility }) {
@@ -198,7 +198,7 @@ Even when the button is hidden, the Route Handler or Server Action must perform 
 Use `createPermissionSnapshot()` when only a small fixed candidate set is needed:
 
 ```ts
-import { createPermissionSnapshot } from "@permguard/server";
+import { createPermissionSnapshot } from "@ironpermjs/server";
 
 const snapshot = createPermissionSnapshot(ability, [
   { action: "read", subject: "Product" },
@@ -214,19 +214,19 @@ The helper returns only candidates that CASL allows and removes duplicates.
 Build the project or ensure its `tsconfig.json` includes the relevant source, then run:
 
 ```bash
-pnpm exec permguard scan .
+pnpm exec ironpermjs scan .
 ```
 
 Machine-readable result:
 
 ```bash
-pnpm exec permguard scan . --json --output .permguard/baseline.json
+pnpm exec ironpermjs scan . --json --output .ironpermjs/baseline.json
 ```
 
 Offline dashboard:
 
 ```bash
-pnpm exec permguard report . --output .permguard/report.html
+pnpm exec ironpermjs report . --output .ironpermjs/report.html
 ```
 
 Open the HTML file directly. It has no backend and sends no project data to a service.
@@ -236,8 +236,8 @@ Open the HTML file directly. It has no backend and sends no project data to a se
 ```json
 {
   "scripts": {
-    "authorization:check": "permguard scan . --ci --fail-on HIGH",
-    "authorization:report": "permguard report . -o .permguard/report.html"
+    "authorization:check": "ironpermjs scan . --ci --fail-on HIGH",
+    "authorization:report": "ironpermjs report . -o .ironpermjs/report.html"
   }
 }
 ```
@@ -261,13 +261,13 @@ A high-confidence finding still requires developer review. A low-confidence find
 Save a reviewed JSON scan from your default branch:
 
 ```bash
-permguard scan . --json -o authorization-baseline.json
+ironpermjs scan . --json -o authorization-baseline.json
 ```
 
 Compare later changes:
 
 ```bash
-permguard diff . --baseline authorization-baseline.json
+ironpermjs diff . --baseline authorization-baseline.json
 ```
 
 The diff compares authorization-relevant model records rather than raw source text.
@@ -277,4 +277,4 @@ The diff compares authorization-relevant model records rather than raw source te
 - Read the [CLI reference](cli-reference.md).
 - Review the [security model](security-model.md).
 - See the [API reference](api-reference.md).
-- Configure [trusted npm publishing](publishing.md) if you maintain PermGuard.
+- Configure [trusted npm publishing](publishing.md) if you maintain IronPermJS.

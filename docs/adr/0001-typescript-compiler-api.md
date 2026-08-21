@@ -5,7 +5,7 @@
 
 ## Context
 
-PermGuard needs a real AST foundation for TypeScript and TSX. Later passes must
+IronPermJS needs a real AST foundation for TypeScript and TSX. Later passes must
 recognize imports, resolve symbols, inspect call expressions, report exact source
 locations, and produce deterministic results without parsing the same file for
 each pass.
@@ -37,9 +37,9 @@ Advantages:
 - native TS and TSX support
 - direct symbol, alias, and import resolution through `TypeChecker`
 - precise positions through `SourceFile.getLineAndCharacterOfPosition()`
-- no additional parser dependency because PermGuard already uses TypeScript
+- no additional parser dependency because IronPermJS already uses TypeScript
 - one `Program` can be shared by all analysis passes
-- deterministic traversal and sorting remain under PermGuard's control
+- deterministic traversal and sorting remain under IronPermJS's control
 
 Tradeoffs:
 
@@ -60,7 +60,7 @@ Advantages:
 
 Tradeoffs:
 
-- adds a dependency and wrapper layer over the API PermGuard ultimately needs
+- adds a dependency and wrapper layer over the API IronPermJS ultimately needs
 - increases memory and abstraction overhead
 - wrapper coverage and behavior become another compatibility surface
 - dropping to compiler nodes may still be necessary for advanced resolution
@@ -92,11 +92,11 @@ and the single `TypeChecker` with later passes.
 
 The public analyzer result remains framework-independent. TypeScript AST objects
 are confined to the analyzer's project context and are not added to
-`@permguard/core` analysis records.
+`@ironpermjs/core` analysis records.
 
 ## Consequences
 
-- `typescript` is a runtime dependency of `@permguard/analyzer`.
+- `typescript` is a runtime dependency of `@ironpermjs/analyzer`.
 - Analysis passes must not call `ts.createSourceFile()` independently.
 - Future passes receive the existing analyzer project and reuse its
   `SourceFile` objects.

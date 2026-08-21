@@ -1,6 +1,6 @@
 # Phase 4: Next.js integration
 
-`@permguard/next` supports explicit authorization at the first App Router
+`@ironpermjs/next` supports explicit authorization at the first App Router
 boundaries:
 
 - Server Components and Server Actions use async `requireCan()`.

@@ -7,12 +7,12 @@ CI-provider-independent severity policy.
 
 Create and store a baseline from the base revision:
 
-    pnpm permguard scan . --json --output permguard-baseline.json
+    pnpm ironpermjs scan . --json --output ironpermjs-baseline.json
 
 Compare a later revision:
 
-    pnpm permguard diff . --baseline permguard-baseline.json
-    pnpm permguard diff . --baseline permguard-baseline.json --json
+    pnpm ironpermjs diff . --baseline ironpermjs-baseline.json
+    pnpm ironpermjs diff . --baseline ironpermjs-baseline.json --json
 
 The diff uses semantic permission, route, and Server Action keys instead of
 source line numbers. It reports added and removed permissions, boundaries,
@@ -25,9 +25,9 @@ analysis model versions.
 
 ## CI policy
 
-    pnpm permguard scan . --ci
-    pnpm permguard scan . --ci --fail-on CRITICAL
-    pnpm permguard diff . --baseline permguard-baseline.json --ci --fail-on HIGH
+    pnpm ironpermjs scan . --ci
+    pnpm ironpermjs scan . --ci --fail-on CRITICAL
+    pnpm ironpermjs diff . --baseline ironpermjs-baseline.json --ci --fail-on HIGH
 
 The default CI threshold is HIGH. INFO, WARNING, HIGH, and CRITICAL are valid
 thresholds. Issues at or above the threshold block the command.

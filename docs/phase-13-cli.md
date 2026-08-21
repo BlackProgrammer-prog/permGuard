@@ -6,10 +6,10 @@ builds the graph without implementing analysis rules itself.
 
 ## Commands
 
-    permguard scan [root]
-    permguard scan [root] --json
-    permguard graph [root]
-    permguard scan [root] --output permguard.json
+    ironpermjs scan [root]
+    ironpermjs scan [root] --json
+    ironpermjs graph [root]
+    ironpermjs scan [root] --output ironpermjs.json
 
 The default command is scan and the default root is the current directory.
 The tsconfig option selects another TypeScript configuration. Repeat

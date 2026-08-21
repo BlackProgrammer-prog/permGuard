@@ -19,7 +19,7 @@ Use this checklist for every fixed-version monorepo release.
 ## GitHub and npm
 
 - [ ] Repository variable `NPM_SCOPE` matches package names.
-- [ ] Trusted Publisher points to `BlackProgrammer-prog/permGuard` and `publish.yml`.
+- [ ] Trusted Publisher points to `BlackProgrammer-prog/IronPermJS` and `publish.yml`.
 - [ ] Trusted Publisher is configured for every package.
 - [ ] Required CI checks pass on the release commit.
 - [ ] Tag is exactly `vX.Y.Z`.
@@ -30,7 +30,7 @@ Use this checklist for every fixed-version monorepo release.
 - [ ] All nine packages show the expected version.
 - [ ] npm shows provenance for every package.
 - [ ] The CLI installs in a clean directory.
-- [ ] `permguard --version` matches the release.
-- [ ] `permguard --help` runs.
+- [ ] `ironpermjs --version` matches the release.
+- [ ] `ironpermjs --help` runs.
 - [ ] A small project can be scanned.
 - [ ] Documentation install commands use the published scope.
