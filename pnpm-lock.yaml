@@ -65,6 +65,9 @@ importers:
       '@permguard/core':
         specifier: workspace:*
         version: link:../core
+      '@permguard/diff':
+        specifier: workspace:*
+        version: link:../diff
       '@permguard/graph':
         specifier: workspace:*
         version: link:../graph
@@ -77,6 +80,12 @@ importers:
       '@casl/ability':
         specifier: ^7.0.1
         version: 7.0.1
+
+  packages/diff:
+    dependencies:
+      '@permguard/core':
+        specifier: workspace:*
+        version: link:../core
 
   packages/graph:
     dependencies:
