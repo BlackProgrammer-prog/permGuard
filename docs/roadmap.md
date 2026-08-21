@@ -16,9 +16,9 @@ Work proceeds incrementally; later phases should not be implemented before their
 - [x] Phase 11: Authorization graph
 - [x] Phase 12: Coverage
 - [x] Phase 13: CLI
-- [ ] Phase 14: HTML reporter
+- [x] Phase 14: HTML reporter
 - [ ] Phase 15: Authorization diff and CI
 - [ ] Phase 16: Hardening and documentation
 
-The next implementation phase is the offline HTML reporter. It will consume
-AnalysisResult and contain no source analysis logic.
+The next implementation phase is authorization diff and CI policy. Git
+integration will remain separate from core analysis logic.

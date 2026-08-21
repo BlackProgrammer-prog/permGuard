@@ -5,6 +5,7 @@ Thin command-line orchestration over analyzer, coverage, and graph packages.
     pnpm permguard scan .
     pnpm permguard scan . --json
     pnpm permguard graph . --output authorization-graph.json
+    pnpm permguard report . --output permguard-report.html
 
 Options:
 
