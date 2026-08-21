@@ -43,7 +43,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Format, lint, typecheck, test, and build
+      - name: Build, lint, typecheck, and test
         run: pnpm check
 
       - name: Verify npm tarballs
