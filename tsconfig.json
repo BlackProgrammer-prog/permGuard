@@ -18,6 +18,7 @@
     "target": "ES2022",
     "paths": {
       "@permguard/analyzer": ["packages/analyzer/src/index.ts"],
+      "@permguard/cli": ["packages/cli/src/index.ts"],
       "@permguard/core": ["packages/core/src/index.ts"],
       "@permguard/graph": ["packages/graph/src/index.ts"],
       "@permguard/next": ["packages/next/src/index.ts"],
