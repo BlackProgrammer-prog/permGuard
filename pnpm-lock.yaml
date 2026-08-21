@@ -63,6 +63,12 @@ importers:
         specifier: ^7.0.1
         version: 7.0.1
 
+  packages/graph:
+    dependencies:
+      '@permguard/core':
+        specifier: workspace:*
+        version: link:../core
+
   packages/next:
     dependencies:
       '@casl/ability':
