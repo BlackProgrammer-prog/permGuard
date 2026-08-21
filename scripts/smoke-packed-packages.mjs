@@ -10,15 +10,15 @@ import { fileURLToPath, URL } from "node:url";
 const rootDir = fileURLToPath(new URL("..", import.meta.url));
 const releaseDir = path.join(rootDir, ".release");
 const packageNames = [
-  "@permguard/core",
-  "@permguard/server",
-  "@permguard/react",
-  "@permguard/next",
-  "@permguard/analyzer",
-  "@permguard/graph",
-  "@permguard/diff",
-  "@permguard/reporter",
-  "@permguard/cli",
+  "@ironpermjs/core",
+  "@ironpermjs/server",
+  "@ironpermjs/react",
+  "@ironpermjs/next",
+  "@ironpermjs/analyzer",
+  "@ironpermjs/graph",
+  "@ironpermjs/diff",
+  "@ironpermjs/reporter",
+  "@ironpermjs/cli",
 ];
 
 function run(command, args, cwd) {
@@ -52,7 +52,7 @@ if (tarballs.length !== packageNames.length) {
   );
 }
 
-const temporaryPrefix = path.join(tmpdir(), "permguard-smoke-");
+const temporaryPrefix = path.join(tmpdir(), "ironpermjs-smoke-");
 const smokeDir = mkdtempSync(temporaryPrefix);
 const resolvedSmokeDir = path.resolve(smokeDir);
 
@@ -65,7 +65,7 @@ try {
     path.join(smokeDir, "package.json"),
     `${JSON.stringify(
       {
-        name: "permguard-package-smoke",
+        name: "ironpermjs-package-smoke",
         version: "0.0.0",
         private: true,
         type: "module",
@@ -91,7 +91,7 @@ try {
   run(
     process.execPath,
     [
-      path.join(smokeDir, "node_modules/@permguard/cli/dist/bin.js"),
+      path.join(smokeDir, "node_modules/@ironpermjs/cli/dist/bin.js"),
       "--version",
     ],
     smokeDir,

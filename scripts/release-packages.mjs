@@ -154,7 +154,9 @@ function verifyPackages(packedPackages) {
     if (manifest.publishConfig?.registry !== "https://registry.npmjs.org/") {
       fail(`${manifest.name} must target the public npm registry.`);
     }
-    if (!manifest.repository?.url?.includes("BlackProgrammer-prog/permGuard")) {
+    if (
+      !manifest.repository?.url?.includes("BlackProgrammer-prog/IronPermJS")
+    ) {
       fail(`${manifest.name} has an incorrect repository URL.`);
     }
     if (!manifest.engines?.node) {
@@ -178,19 +180,19 @@ function assertPublishEnvironment(version) {
   if (!atLeast(npmVersion, [11, 5, 1])) {
     fail("trusted publishing requires npm 11.5.1 or newer.");
   }
-  if (process.env.PERMGUARD_PUBLISH !== "1") {
-    fail("set PERMGUARD_PUBLISH=1 to confirm a real registry publish.");
+  if (process.env.IRONPERMJS_PUBLISH !== "1") {
+    fail("set IRONPERMJS_PUBLISH=1 to confirm a real registry publish.");
   }
 
-  const expectedScope = process.env.PERMGUARD_NPM_SCOPE;
+  const expectedScope = process.env.IRONPERMJS_NPM_SCOPE;
   if (!expectedScope?.startsWith("@")) {
-    fail("set PERMGUARD_NPM_SCOPE to the npm scope you own.");
+    fail("set IRONPERMJS_NPM_SCOPE to the npm scope you own.");
   }
   for (const packageDir of packageDirs) {
     const manifest = packageManifest(packageDir);
     if (!manifest.name.startsWith(`${expectedScope}/`)) {
       fail(
-        `${manifest.name} does not belong to PERMGUARD_NPM_SCOPE=${expectedScope}.`,
+        `${manifest.name} does not belong to IRONPERMJS_NPM_SCOPE=${expectedScope}.`,
       );
     }
   }
@@ -232,6 +234,6 @@ if (action === "publish") {
 
 process.stdout.write(
   action === "publish"
-    ? `Published PermGuard v${version}.\n`
+    ? `Published IronPermJS v${version}.\n`
     : `Release artifacts are ready in ${releaseDir}.\n`,
 );
