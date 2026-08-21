@@ -1,21 +1,21 @@
 {
-  "name": "@permguard/core",
+  "name": "@ironpermjs/core",
   "version": "0.1.0",
-  "description": "Framework-independent authorization and analysis types for PermGuard",
+  "description": "Framework-independent authorization and analysis types for IronPermJS",
   "keywords": [
     "authorization",
     "casl",
     "permissions",
     "typescript"
   ],
-  "homepage": "https://github.com/BlackProgrammer-prog/permGuard#readme",
+  "homepage": "https://github.com/BlackProgrammer-prog/IronPermJS#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BlackProgrammer-prog/permGuard.git",
+    "url": "git+https://github.com/BlackProgrammer-prog/IronPermJS.git",
     "directory": "packages/core"
   },
   "bugs": {
-    "url": "https://github.com/BlackProgrammer-prog/permGuard/issues"
+    "url": "https://github.com/BlackProgrammer-prog/IronPermJS/issues"
   },
   "license": "MIT",
   "engines": {

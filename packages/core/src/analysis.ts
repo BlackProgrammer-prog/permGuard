@@ -52,7 +52,7 @@ export interface HttpClientRequestRecord {
 }
 
 export type AuthorizationCheckKind =
-  "casl-can" | "casl-throw-unless-can" | "permguard-require-can";
+  "casl-can" | "casl-throw-unless-can" | "ironpermjs-require-can";
 
 export interface AuthorizationCheck {
   readonly id: string;

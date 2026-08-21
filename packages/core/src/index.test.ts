@@ -5,7 +5,7 @@ import {
   type PermissionSnapshot,
 } from "./index.js";
 
-describe("@permguard/core", () => {
+describe("@ironpermjs/core", () => {
   it("exposes a stable analysis model version", () => {
     expect(ANALYSIS_MODEL_VERSION).toBe(2);
   });
