@@ -1,21 +1,21 @@
 {
-  "name": "@permguard/reporter",
+  "name": "@ironpermjs/reporter",
   "version": "0.1.0",
-  "description": "Offline HTML and JSON authorization reports for PermGuard",
+  "description": "Offline HTML and JSON authorization reports for IronPermJS",
   "keywords": [
     "authorization",
     "security",
     "html-report",
     "audit"
   ],
-  "homepage": "https://github.com/BlackProgrammer-prog/permGuard#readme",
+  "homepage": "https://github.com/BlackProgrammer-prog/IronPermJS#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BlackProgrammer-prog/permGuard.git",
+    "url": "git+https://github.com/BlackProgrammer-prog/IronPermJS.git",
     "directory": "packages/reporter"
   },
   "bugs": {
-    "url": "https://github.com/BlackProgrammer-prog/permGuard/issues"
+    "url": "https://github.com/BlackProgrammer-prog/IronPermJS/issues"
   },
   "license": "MIT",
   "engines": {
@@ -43,6 +43,6 @@
     "build": "tsc -p tsconfig.build.json"
   },
   "dependencies": {
-    "@permguard/core": "workspace:*"
+    "@ironpermjs/core": "workspace:*"
   }
 }

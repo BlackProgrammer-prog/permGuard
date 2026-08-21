@@ -1,9 +1,9 @@
-# @permguard/reporter
+# @ironpermjs/reporter
 
 Static offline HTML and JSON rendering from AnalysisResult. This package
 contains no source analysis logic.
 
-    import { renderHtmlReport, renderJsonReport } from "@permguard/reporter";
+    import { renderHtmlReport, renderJsonReport } from "@ironpermjs/reporter";
 
     const html = renderHtmlReport(analysis, {
       title: "Authorization report",
