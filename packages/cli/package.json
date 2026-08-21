@@ -2,7 +2,30 @@
   "name": "@permguard/cli",
   "version": "0.1.0",
   "description": "Command-line orchestration for PermGuard authorization analysis",
+  "keywords": [
+    "authorization",
+    "casl",
+    "security",
+    "cli"
+  ],
+  "homepage": "https://github.com/BlackProgrammer-prog/permGuard#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BlackProgrammer-prog/permGuard.git",
+    "directory": "packages/cli"
+  },
+  "bugs": {
+    "url": "https://github.com/BlackProgrammer-prog/permGuard/issues"
+  },
   "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true,
+    "registry": "https://registry.npmjs.org/"
+  },
   "type": "module",
   "sideEffects": false,
   "bin": {

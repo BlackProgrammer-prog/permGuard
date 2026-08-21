@@ -1,5 +1,6 @@
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 import type { AnalysisResult } from "@permguard/core";
 import { diffAnalysisResults, evaluateCiPolicy } from "@permguard/diff";
 import { renderHtmlReport, renderJsonReport } from "@permguard/reporter";
@@ -12,7 +13,22 @@ import { formatScanSummary } from "./format-summary.js";
 import { parseAnalysisBaseline } from "./parse-baseline.js";
 import { CliArgumentError, parseCliArguments } from "./parse-arguments.js";
 
-const VERSION = "0.1.0";
+interface PackageMetadata {
+  readonly version?: unknown;
+}
+
+function readPackageVersion(): string {
+  const packagePath = fileURLToPath(
+    new URL("../package.json", import.meta.url),
+  );
+  const metadata = JSON.parse(
+    readFileSync(packagePath, "utf8"),
+  ) as PackageMetadata;
+  if (typeof metadata.version !== "string") {
+    throw new Error("Unable to read the PermGuard CLI version.");
+  }
+  return metadata.version;
+}
 
 const HELP = `Usage: permguard <command> [root] [options]
 
@@ -83,7 +99,7 @@ export function runCli(
     return 0;
   }
   if (options.command === "version") {
-    io.stdout(`${VERSION}\n`);
+    io.stdout(`${readPackageVersion()}\n`);
     return 0;
   }
 
