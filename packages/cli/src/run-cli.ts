@@ -1,12 +1,15 @@
-import { mkdirSync, writeFileSync } from "node:fs";
+import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import type { AnalysisResult } from "@permguard/core";
+import { diffAnalysisResults, evaluateCiPolicy } from "@permguard/diff";
 import { renderHtmlReport, renderJsonReport } from "@permguard/reporter";
 import {
   analyzeProject,
   type AnalyzeProjectOptions,
 } from "./analyze-project.js";
+import { formatDiffSummary } from "./format-diff-summary.js";
 import { formatScanSummary } from "./format-summary.js";
+import { parseAnalysisBaseline } from "./parse-baseline.js";
 import { CliArgumentError, parseCliArguments } from "./parse-arguments.js";
 
 const VERSION = "0.1.0";
@@ -17,12 +20,16 @@ Commands:
   scan            Analyze authorization and print a summary (default)
   graph           Analyze authorization and print graph JSON
   report          Analyze authorization and render an offline HTML report
+  diff            Compare current analysis with a JSON baseline
 
 Options:
   --json          Print the complete scan result as JSON
   -o, --output    Write output to a file
   --tsconfig      Use a specific tsconfig file
   --client-module Add an imported HTTP client wrapper (repeatable)
+  --baseline      Baseline AnalysisResult JSON for diff
+  --ci            Enable CI policy (defaults to fail on HIGH)
+  --fail-on       INFO, WARNING, HIGH, or CRITICAL
   -h, --help      Show this help
   -v, --version   Show the version
 `;
@@ -31,6 +38,7 @@ export interface CliIO {
   readonly cwd: () => string;
   readonly stdout: (value: string) => void;
   readonly stderr: (value: string) => void;
+  readonly readFile: (filePath: string) => string;
   readonly writeFile: (filePath: string, value: string) => void;
 }
 
@@ -42,6 +50,7 @@ const defaultIO: CliIO = {
   cwd: () => process.cwd(),
   stdout: (value) => process.stdout.write(value),
   stderr: (value) => process.stderr.write(value),
+  readFile: (filePath) => readFileSync(filePath, "utf8"),
   writeFile: (filePath, value) => {
     mkdirSync(path.dirname(filePath), { recursive: true });
     writeFileSync(filePath, value, "utf8");
@@ -87,24 +96,53 @@ export function runCli(
         : {}),
       additionalClientModules: options.additionalClientModules,
     });
-    const value =
-      options.command === "report"
-        ? renderHtmlReport(analysis, {
-            projectName: path.basename(rootDir),
-          })
-        : options.command === "graph"
-          ? JSON.stringify(analysis.graph, null, 2)
-          : options.json
-            ? renderJsonReport(analysis)
-            : formatScanSummary(analysis, rootDir);
-    const output = `${value}\n`;
+    let value: string;
+    if (options.command === "diff") {
+      if (!options.baselinePath) {
+        throw new Error("diff requires a baseline.");
+      }
+      const baselinePath = path.resolve(io.cwd(), options.baselinePath);
+      const baseline = parseAnalysisBaseline(io.readFile(baselinePath));
+      const diff = diffAnalysisResults(baseline, analysis);
+      value = options.json
+        ? JSON.stringify(diff, null, 2)
+        : formatDiffSummary(diff);
+    } else if (options.command === "report") {
+      value = renderHtmlReport(analysis, {
+        projectName: path.basename(rootDir),
+      });
+    } else if (options.command === "graph") {
+      value = JSON.stringify(analysis.graph, null, 2);
+    } else {
+      value = options.json
+        ? renderJsonReport(analysis)
+        : formatScanSummary(analysis, rootDir);
+    }
 
+    const output = `${value}\n`;
     if (options.outputPath) {
       const outputPath = path.resolve(io.cwd(), options.outputPath);
       io.writeFile(outputPath, output);
       io.stdout(`Wrote ${outputPath}\n`);
     } else {
       io.stdout(output);
+    }
+
+    if (options.ci) {
+      const policy = evaluateCiPolicy(analysis, {
+        failOn: options.failOn,
+      });
+      if (!policy.passed) {
+        io.stderr(
+          `CI policy failed: ${policy.blockingIssues.length} issue(s) at ${policy.failOn} or above.\n`,
+        );
+        for (const issue of policy.blockingIssues) {
+          io.stderr(
+            `- ${issue.severity} ${issue.title} (${issue.location.file}:${issue.location.line})\n`,
+          );
+        }
+        return 3;
+      }
     }
     return 0;
   } catch (error) {

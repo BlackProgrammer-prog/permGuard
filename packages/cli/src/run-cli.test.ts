@@ -32,6 +32,11 @@ function createIO() {
     cwd: () => "/workspace",
     stdout: (value) => stdout.push(value),
     stderr: (value) => stderr.push(value),
+    readFile: (filePath) => {
+      const value = files.get(filePath);
+      if (value === undefined) throw new Error("File not found");
+      return value;
+    },
     writeFile: (filePath, value) => files.set(filePath, value),
   };
   return { io, stdout, stderr, files };
@@ -89,6 +94,47 @@ describe("runCli", () => {
     expect(html).toContain("<!doctype html>");
     expect(html).toContain("Authorization overview");
     expect(html).not.toMatch(/<(script|link|img)\b/i);
+  });
+
+  it("compares current analysis with a JSON baseline", () => {
+    const capture = createIO();
+    capture.files.set("/workspace/baseline.json", JSON.stringify(analysis));
+
+    const exitCode = runCli(
+      ["diff", "--baseline", "baseline.json"],
+      capture.io,
+      { analyze: () => analysis },
+    );
+
+    expect(exitCode).toBe(0);
+    expect(capture.stdout.join("")).toContain(
+      "No authorization-relevant changes detected.",
+    );
+  });
+
+  it("returns exit code 3 when CI severity policy fails", () => {
+    const capture = createIO();
+    const unsafe: AnalysisResult = {
+      ...analysis,
+      issues: [
+        {
+          id: "missing-auth",
+          severity: "HIGH",
+          confidence: "high",
+          title: "Missing authorization",
+          explanation: "No recognized check",
+          location: { file: "app/api/route.ts", line: 4, column: 1 },
+        },
+      ],
+    };
+
+    const exitCode = runCli(["scan", "--ci", "--fail-on", "HIGH"], capture.io, {
+      analyze: () => unsafe,
+    });
+
+    expect(exitCode).toBe(3);
+    expect(capture.stderr.join("")).toContain("CI policy failed");
+    expect(capture.stderr.join("")).toContain("Missing authorization");
   });
 
   it("returns distinct exit codes for invalid arguments and analysis errors", () => {
