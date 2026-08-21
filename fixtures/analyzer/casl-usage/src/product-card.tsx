@@ -1,4 +1,4 @@
-import { Can as Allowed, useCan as usePermission } from "@permguard/react";
+import { Can as Allowed, useCan as usePermission } from "@ironpermjs/react";
 
 export function ProductCard() {
   const mayEdit = usePermission("update", "Product");

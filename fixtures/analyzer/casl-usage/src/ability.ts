@@ -4,7 +4,7 @@ import {
   defineAbility,
   ForbiddenError,
 } from "@casl/ability";
-import { requireCan as enforce } from "@permguard/server";
+import { requireCan as enforce } from "@ironpermjs/server";
 
 const {
   can: allow,

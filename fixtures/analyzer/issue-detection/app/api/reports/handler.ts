@@ -1,4 +1,4 @@
-import { requireCan } from "@permguard/server";
+import { requireCan } from "@ironpermjs/server";
 import { ability } from "../../../src/ability";
 
 export async function getReports() {

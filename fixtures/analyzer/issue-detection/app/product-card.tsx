@@ -1,4 +1,4 @@
-import { Can } from "@permguard/react";
+import { Can } from "@ironpermjs/react";
 
 export function ProductCard() {
   return (

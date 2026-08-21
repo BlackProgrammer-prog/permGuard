@@ -9,8 +9,8 @@
       "@casl/ability": [
         "../../../packages/server/node_modules/@casl/ability/dist/types/index.d.ts"
       ],
-      "@permguard/react": ["../../../packages/react/src/index.ts"],
-      "@permguard/server": ["../../../packages/server/src/index.ts"]
+      "@ironpermjs/react": ["../../../packages/react/src/index.ts"],
+      "@ironpermjs/server": ["../../../packages/server/src/index.ts"]
     },
     "strict": true,
     "target": "ES2022"
