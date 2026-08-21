@@ -17,8 +17,8 @@ Work proceeds incrementally; later phases should not be implemented before their
 - [x] Phase 12: Coverage
 - [x] Phase 13: CLI
 - [x] Phase 14: HTML reporter
-- [ ] Phase 15: Authorization diff and CI
+- [x] Phase 15: Authorization diff and CI
 - [ ] Phase 16: Hardening and documentation
 
-The next implementation phase is authorization diff and CI policy. Git
-integration will remain separate from core analysis logic.
+The final planned phase is hardening and documentation: public API review,
+larger regression fixtures, performance checks, and release guidance.

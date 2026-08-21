@@ -18,6 +18,7 @@ Source is parsed once into a framework-independent analysis model. Graph and rep
 - `next`: explicit Next.js integration using core/server/react where appropriate.
 - `analyzer`: AST parsing and analysis; depends only on core.
 - `graph`: graph construction from core models.
+- `diff`: semantic AnalysisResult comparison and CI severity policy.
 - `reporter`: offline HTML and JSON rendering from core models.
 - `cli`: orchestration over analyzer, graph, and reporter.
 
