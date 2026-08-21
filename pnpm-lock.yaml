@@ -57,6 +57,18 @@ importers:
         specifier: ^5.9.3
         version: 5.9.3
 
+  packages/cli:
+    dependencies:
+      '@permguard/analyzer':
+        specifier: workspace:*
+        version: link:../analyzer
+      '@permguard/core':
+        specifier: workspace:*
+        version: link:../core
+      '@permguard/graph':
+        specifier: workspace:*
+        version: link:../graph
+
   packages/core:
     dependencies:
       '@casl/ability':
