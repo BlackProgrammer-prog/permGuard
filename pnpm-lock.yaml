@@ -68,6 +68,9 @@ importers:
       '@permguard/graph':
         specifier: workspace:*
         version: link:../graph
+      '@permguard/reporter':
+        specifier: workspace:*
+        version: link:../reporter
 
   packages/core:
     dependencies:
@@ -104,6 +107,12 @@ importers:
       react:
         specifier: ^18.0.0 || ^19.0.0
         version: 19.2.8
+
+  packages/reporter:
+    dependencies:
+      '@permguard/core':
+        specifier: workspace:*
+        version: link:../core
 
   packages/server:
     dependencies:
