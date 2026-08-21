@@ -1,9 +1,9 @@
-# @permguard/react
+# @ironpermjs/react
 
 Explicit, analyzer-friendly React UI helpers built on `@casl/react`.
 
 ```tsx
-import { AbilityProvider, Can, useCan } from "@permguard/react";
+import { AbilityProvider, Can, useCan } from "@ironpermjs/react";
 
 <AbilityProvider value={ability}>
   <Can action="delete" subject="Product" fallback={<span>Not allowed</span>}>

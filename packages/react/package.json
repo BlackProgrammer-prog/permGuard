@@ -1,5 +1,5 @@
 {
-  "name": "@permguard/react",
+  "name": "@ironpermjs/react",
   "version": "0.1.0",
   "description": "Analyzer-friendly React authorization helpers built on CASL",
   "keywords": [
@@ -8,14 +8,14 @@
     "permissions",
     "react"
   ],
-  "homepage": "https://github.com/BlackProgrammer-prog/permGuard#readme",
+  "homepage": "https://github.com/BlackProgrammer-prog/IronPermJS#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BlackProgrammer-prog/permGuard.git",
+    "url": "git+https://github.com/BlackProgrammer-prog/IronPermJS.git",
     "directory": "packages/react"
   },
   "bugs": {
-    "url": "https://github.com/BlackProgrammer-prog/permGuard/issues"
+    "url": "https://github.com/BlackProgrammer-prog/IronPermJS/issues"
   },
   "license": "MIT",
   "engines": {
