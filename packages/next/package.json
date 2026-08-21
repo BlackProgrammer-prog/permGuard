@@ -2,7 +2,30 @@
   "name": "@permguard/next",
   "version": "0.1.0",
   "description": "Explicit Next.js App Router authorization helpers built on CASL",
+  "keywords": [
+    "authorization",
+    "casl",
+    "nextjs",
+    "app-router"
+  ],
+  "homepage": "https://github.com/BlackProgrammer-prog/permGuard#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BlackProgrammer-prog/permGuard.git",
+    "directory": "packages/next"
+  },
+  "bugs": {
+    "url": "https://github.com/BlackProgrammer-prog/permGuard/issues"
+  },
   "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true,
+    "registry": "https://registry.npmjs.org/"
+  },
   "type": "module",
   "sideEffects": false,
   "main": "./dist/index.js",
