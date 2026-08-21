@@ -6,9 +6,9 @@ import {
   detectHttpClientUsage,
   discoverRouteHandlers,
   discoverServerActions,
-} from "@permguard/analyzer";
-import { ANALYSIS_MODEL_VERSION, type AnalysisResult } from "@permguard/core";
-import { buildAuthorizationGraph } from "@permguard/graph";
+} from "@ironpermjs/analyzer";
+import { ANALYSIS_MODEL_VERSION, type AnalysisResult } from "@ironpermjs/core";
+import { buildAuthorizationGraph } from "@ironpermjs/graph";
 
 export interface AnalyzeProjectOptions {
   readonly rootDir: string;

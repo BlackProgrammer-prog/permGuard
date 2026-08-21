@@ -1,4 +1,4 @@
-import { ANALYSIS_MODEL_VERSION, type AnalysisResult } from "@permguard/core";
+import { ANALYSIS_MODEL_VERSION, type AnalysisResult } from "@ironpermjs/core";
 import { describe, expect, it } from "vitest";
 import type { CliIO } from "./run-cli.js";
 import { runCli } from "./run-cli.js";
@@ -84,13 +84,13 @@ describe("runCli", () => {
   it("renders an offline HTML report", () => {
     const capture = createIO();
     const exitCode = runCli(
-      ["report", "--output", "reports/permguard.html"],
+      ["report", "--output", "reports/ironpermjs.html"],
       capture.io,
       { analyze: () => analysis },
     );
 
     expect(exitCode).toBe(0);
-    const html = capture.files.get("/workspace/reports/permguard.html") ?? "";
+    const html = capture.files.get("/workspace/reports/ironpermjs.html") ?? "";
     expect(html).toContain("<!doctype html>");
     expect(html).toContain("Authorization overview");
     expect(html).not.toMatch(/<(script|link|img)\b/i);
@@ -164,6 +164,6 @@ describe("runCli", () => {
 
     expect(exitCode).toBe(0);
     expect(called).toBe(false);
-    expect(capture.stdout.join("")).toContain("Usage: permguard");
+    expect(capture.stdout.join("")).toContain("Usage: ironpermjs");
   });
 });

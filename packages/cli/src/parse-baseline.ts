@@ -1,4 +1,4 @@
-import { ANALYSIS_MODEL_VERSION, type AnalysisResult } from "@permguard/core";
+import { ANALYSIS_MODEL_VERSION, type AnalysisResult } from "@ironpermjs/core";
 
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === "object" && value !== null;

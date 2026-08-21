@@ -1,14 +1,14 @@
-# @permguard/cli
+# @ironpermjs/cli
 
 Thin command-line orchestration over analyzer, coverage, and graph packages.
 
-    pnpm permguard scan .
-    pnpm permguard scan . --json
-    pnpm permguard graph . --output authorization-graph.json
-    pnpm permguard report . --output permguard-report.html
-    pnpm permguard scan . --json --output baseline.json
-    pnpm permguard diff . --baseline baseline.json
-    pnpm permguard scan . --ci --fail-on HIGH
+    pnpm ironpermjs scan .
+    pnpm ironpermjs scan . --json
+    pnpm ironpermjs graph . --output authorization-graph.json
+    pnpm ironpermjs report . --output ironpermjs-report.html
+    pnpm ironpermjs scan . --json --output baseline.json
+    pnpm ironpermjs diff . --baseline baseline.json
+    pnpm ironpermjs scan . --ci --fail-on HIGH
 
 Options:
 

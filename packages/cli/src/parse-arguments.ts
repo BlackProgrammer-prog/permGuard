@@ -1,4 +1,4 @@
-import type { IssueSeverity } from "@permguard/core";
+import type { IssueSeverity } from "@ironpermjs/core";
 
 export type CliCommand =
   "scan" | "graph" | "report" | "diff" | "help" | "version";

@@ -1,9 +1,9 @@
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import type { AnalysisResult } from "@permguard/core";
-import { diffAnalysisResults, evaluateCiPolicy } from "@permguard/diff";
-import { renderHtmlReport, renderJsonReport } from "@permguard/reporter";
+import type { AnalysisResult } from "@ironpermjs/core";
+import { diffAnalysisResults, evaluateCiPolicy } from "@ironpermjs/diff";
+import { renderHtmlReport, renderJsonReport } from "@ironpermjs/reporter";
 import {
   analyzeProject,
   type AnalyzeProjectOptions,
@@ -25,12 +25,12 @@ function readPackageVersion(): string {
     readFileSync(packagePath, "utf8"),
   ) as PackageMetadata;
   if (typeof metadata.version !== "string") {
-    throw new Error("Unable to read the PermGuard CLI version.");
+    throw new Error("Unable to read the IronPermJS CLI version.");
   }
   return metadata.version;
 }
 
-const HELP = `Usage: permguard <command> [root] [options]
+const HELP = `Usage: ironpermjs <command> [root] [options]
 
 Commands:
   scan            Analyze authorization and print a summary (default)
@@ -90,7 +90,7 @@ export function runCli(
   try {
     options = parseCliArguments(args);
   } catch (error) {
-    io.stderr(`permguard: ${errorMessage(error)}\n`);
+    io.stderr(`ironpermjs: ${errorMessage(error)}\n`);
     return error instanceof CliArgumentError ? 2 : 1;
   }
 
@@ -162,7 +162,7 @@ export function runCli(
     }
     return 0;
   } catch (error) {
-    io.stderr(`permguard: ${errorMessage(error)}\n`);
+    io.stderr(`ironpermjs: ${errorMessage(error)}\n`);
     return 1;
   }
 }

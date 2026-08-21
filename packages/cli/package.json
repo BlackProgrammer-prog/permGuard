@@ -1,21 +1,21 @@
 {
-  "name": "@permguard/cli",
+  "name": "@ironpermjs/cli",
   "version": "0.1.0",
-  "description": "Command-line orchestration for PermGuard authorization analysis",
+  "description": "Command-line orchestration for IronPermJS authorization analysis",
   "keywords": [
     "authorization",
     "casl",
     "security",
     "cli"
   ],
-  "homepage": "https://github.com/BlackProgrammer-prog/permGuard#readme",
+  "homepage": "https://github.com/BlackProgrammer-prog/IronPermJS#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BlackProgrammer-prog/permGuard.git",
+    "url": "git+https://github.com/BlackProgrammer-prog/IronPermJS.git",
     "directory": "packages/cli"
   },
   "bugs": {
-    "url": "https://github.com/BlackProgrammer-prog/permGuard/issues"
+    "url": "https://github.com/BlackProgrammer-prog/IronPermJS/issues"
   },
   "license": "MIT",
   "engines": {
@@ -29,7 +29,7 @@
   "type": "module",
   "sideEffects": false,
   "bin": {
-    "permguard": "./dist/bin.js"
+    "ironpermjs": "./dist/bin.js"
   },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -46,10 +46,10 @@
     "build": "tsc -p tsconfig.build.json"
   },
   "dependencies": {
-    "@permguard/analyzer": "workspace:*",
-    "@permguard/core": "workspace:*",
-    "@permguard/diff": "workspace:*",
-    "@permguard/graph": "workspace:*",
-    "@permguard/reporter": "workspace:*"
+    "@ironpermjs/analyzer": "workspace:*",
+    "@ironpermjs/core": "workspace:*",
+    "@ironpermjs/diff": "workspace:*",
+    "@ironpermjs/graph": "workspace:*",
+    "@ironpermjs/reporter": "workspace:*"
   }
 }

@@ -1,4 +1,4 @@
-import type { AuthorizationDiff } from "@permguard/diff";
+import type { AuthorizationDiff } from "@ironpermjs/diff";
 
 function signed(value: number): string {
   return value > 0 ? `+${value}` : String(value);
@@ -6,7 +6,7 @@ function signed(value: number): string {
 
 export function formatDiffSummary(diff: AuthorizationDiff): string {
   const lines = [
-    "PermGuard authorization diff",
+    "IronPermJS authorization diff",
     "",
     `Routes coverage: ${diff.coverage.routes.before}% -> ${diff.coverage.routes.after}% (${signed(diff.coverage.routes.delta)})`,
     `Server Actions coverage: ${diff.coverage.serverActions.before}% -> ${diff.coverage.serverActions.after}% (${signed(diff.coverage.serverActions.delta)})`,

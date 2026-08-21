@@ -2,7 +2,7 @@ import type {
   AnalysisResult,
   AuthorizationCoverage,
   IssueSeverity,
-} from "@permguard/core";
+} from "@ironpermjs/core";
 
 const SEVERITIES: readonly IssueSeverity[] = [
   "CRITICAL",
@@ -30,7 +30,7 @@ export function formatScanSummary(
   }).join(" ");
 
   return [
-    "PermGuard authorization scan",
+    "IronPermJS authorization scan",
     `Root: ${rootDir}`,
     "",
     metric("Routes", analysis.coverage.routes),
