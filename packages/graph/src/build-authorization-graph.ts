@@ -6,7 +6,7 @@ import type {
   AuthorizationGraphNodeType,
   PermissionDescriptor,
   SourceLocation,
-} from "@permguard/core";
+} from "@ironpermjs/core";
 import type { BuildAuthorizationGraphInput } from "./types.js";
 
 interface GraphAccumulator {

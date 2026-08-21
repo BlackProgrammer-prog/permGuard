@@ -1,4 +1,4 @@
-import type { AnalysisResult } from "@permguard/core";
+import type { AnalysisResult } from "@ironpermjs/core";
 
 export type BuildAuthorizationGraphInput = Pick<
   AnalysisResult,

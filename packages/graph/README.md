@@ -1,9 +1,9 @@
-# @permguard/graph
+# @ironpermjs/graph
 
 Deterministic authorization graph construction from the shared analysis model.
 This package does not parse source code.
 
-    import { buildAuthorizationGraph } from "@permguard/graph";
+    import { buildAuthorizationGraph } from "@ironpermjs/graph";
 
     const graph = buildAuthorizationGraph({
       permissions,

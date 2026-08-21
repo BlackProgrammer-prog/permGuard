@@ -56,7 +56,7 @@ function input(): BuildAuthorizationGraphInput {
     authorizationChecks: [
       {
         id: "check:read-product",
-        kind: "permguard-require-can",
+        kind: "ironpermjs-require-can",
         permission: { action: "read", subject: "Product" },
         location,
         confidence: "certain",

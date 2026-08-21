@@ -1,21 +1,21 @@
 {
-  "name": "@permguard/graph",
+  "name": "@ironpermjs/graph",
   "version": "0.1.0",
-  "description": "Deterministic authorization graph construction for PermGuard",
+  "description": "Deterministic authorization graph construction for IronPermJS",
   "keywords": [
     "authorization",
     "permissions",
     "graph",
     "audit"
   ],
-  "homepage": "https://github.com/BlackProgrammer-prog/permGuard#readme",
+  "homepage": "https://github.com/BlackProgrammer-prog/IronPermJS#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BlackProgrammer-prog/permGuard.git",
+    "url": "git+https://github.com/BlackProgrammer-prog/IronPermJS.git",
     "directory": "packages/graph"
   },
   "bugs": {
-    "url": "https://github.com/BlackProgrammer-prog/permGuard/issues"
+    "url": "https://github.com/BlackProgrammer-prog/IronPermJS/issues"
   },
   "license": "MIT",
   "engines": {
@@ -43,6 +43,6 @@
     "build": "tsc -p tsconfig.build.json"
   },
   "dependencies": {
-    "@permguard/core": "workspace:*"
+    "@ironpermjs/core": "workspace:*"
   }
 }
