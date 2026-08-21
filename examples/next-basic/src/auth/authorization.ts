@@ -1,4 +1,4 @@
-import { createNextAuthorization } from "@permguard/next";
+import { createNextAuthorization } from "@ironpermjs/next";
 import { defineAbilityFor } from "./ability";
 import { requireUser } from "./session";
 

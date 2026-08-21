@@ -8,7 +8,7 @@ When a rule depends on resource data, load the resource first and authorize a co
 
 ```ts
 import { subject } from "@casl/ability";
-import { requireCan } from "@permguard/server";
+import { requireCan } from "@ironpermjs/server";
 
 const ability = defineAbilityFor(await requireUser());
 const order = await orders.findById(orderId);
@@ -24,7 +24,7 @@ A subject-name-only check cannot evaluate ownership conditions.
 Do not serialize sensitive server rules merely to render UI. Evaluate a fixed candidate list:
 
 ```ts
-import { createPermissionSnapshot } from "@permguard/server";
+import { createPermissionSnapshot } from "@ironpermjs/server";
 
 const snapshot = createPermissionSnapshot(ability, [
   { action: "read", subject: "Order" },
@@ -39,7 +39,7 @@ The snapshot is UI data, not authorization proof.
 Built-in analysis supports Axios, Axios instances, fetch, and ky. Register an imported wrapper:
 
 ```bash
-permguard scan . --client-module "@/lib/api-client"
+ironpermjs scan . --client-module "@/lib/api-client"
 ```
 
 ## Review order

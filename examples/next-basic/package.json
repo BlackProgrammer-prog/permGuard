@@ -1,5 +1,5 @@
 {
-  "name": "@permguard/example-next-basic",
+  "name": "@ironpermjs/example-next-basic",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "@casl/ability": "^7.0.1",
-    "@permguard/next": "workspace:*",
+    "@ironpermjs/next": "workspace:*",
     "next": "^16.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"

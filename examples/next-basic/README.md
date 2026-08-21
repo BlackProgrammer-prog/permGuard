@@ -26,7 +26,7 @@ Copy these files into an existing Next.js project and adapt the `@/` alias if ne
 Install:
 
 ```bash
-pnpm add @casl/ability @permguard/next
+pnpm add @casl/ability @ironpermjs/next
 ```
 
 Replace the demonstration body in `requireUser()` with your authenticated server session. The example intentionally does not implement login, a database, or browser-controlled roles.
@@ -34,9 +34,9 @@ Replace the demonstration body in `requireUser()` with your authenticated server
 Run an authorization audit after integrating:
 
 ```bash
-pnpm add -D @permguard/cli
-pnpm exec permguard scan .
-pnpm exec permguard report . -o permguard-report.html
+pnpm add -D @ironpermjs/cli
+pnpm exec ironpermjs scan .
+pnpm exec ironpermjs report . -o ironpermjs-report.html
 ```
 
 The endpoint returns demonstration JSON instead of mutating storage, so copying it cannot delete real data accidentally.
