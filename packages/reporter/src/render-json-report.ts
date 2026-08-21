@@ -1,4 +1,4 @@
-import type { AnalysisResult } from "@permguard/core";
+import type { AnalysisResult } from "@ironpermjs/core";
 import type { JsonReportOptions } from "./types.js";
 
 export function renderJsonReport(

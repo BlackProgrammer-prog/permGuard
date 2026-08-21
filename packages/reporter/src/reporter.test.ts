@@ -1,4 +1,4 @@
-import { ANALYSIS_MODEL_VERSION, type AnalysisResult } from "@permguard/core";
+import { ANALYSIS_MODEL_VERSION, type AnalysisResult } from "@ironpermjs/core";
 import { describe, expect, it } from "vitest";
 import { renderHtmlReport } from "./render-html-report.js";
 import { renderJsonReport } from "./render-json-report.js";
@@ -51,7 +51,7 @@ function analysis(): AnalysisResult {
     authorizationChecks: [
       {
         id: "check:read",
-        kind: "permguard-require-can",
+        kind: "ironpermjs-require-can",
         permission: { action: "read", subject: "Product" },
         location,
         confidence: "certain",
@@ -80,7 +80,7 @@ function analysis(): AnalysisResult {
   };
 }
 
-describe("@permguard/reporter", () => {
+describe("@ironpermjs/reporter", () => {
   it("renders every offline dashboard section", () => {
     const html = renderHtmlReport(analysis(), {
       title: "Security report",

@@ -2,7 +2,7 @@ import type {
   AnalysisResult,
   CoverageMetric,
   SourceLocation,
-} from "@permguard/core";
+} from "@ironpermjs/core";
 import type { HtmlReportOptions } from "./types.js";
 
 function escapeHtml(value: string | number): string {
@@ -53,7 +53,7 @@ export function renderHtmlReport(
   analysis: AnalysisResult,
   options: HtmlReportOptions = {},
 ): string {
-  const title = options.title ?? "PermGuard Authorization Report";
+  const title = options.title ?? "IronPermJS Authorization Report";
   const projectName = options.projectName ?? "Project";
   const knownChecks = new Set(
     analysis.authorizationChecks.map((check) => check.id),
@@ -161,7 +161,7 @@ section{background:var(--panel);border:1px solid var(--line);border-radius:14px;
 </head>
 <body>
 <header>
-  <p class="muted">PermGuard - Analysis model v${analysis.modelVersion}</p>
+  <p class="muted">IronPermJS - Analysis model v${analysis.modelVersion}</p>
   <h1>${escapeHtml(title)}</h1>
   <p>${escapeHtml(projectName)} - Static authorization analysis</p>
   <nav aria-label="Report sections">
