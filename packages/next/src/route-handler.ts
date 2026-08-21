@@ -6,14 +6,14 @@ export type RouteParameters = Record<
   string | readonly string[] | undefined
 >;
 
-export interface PermGuardRouteContext<
+export interface IronPermJSRouteContext<
   TParams extends RouteParameters = RouteParameters,
 > {
   readonly params: Promise<TParams>;
 }
 
 export type AppRouteHandler<
-  TContext extends PermGuardRouteContext = PermGuardRouteContext,
+  TContext extends IronPermJSRouteContext = IronPermJSRouteContext,
 > = (request: NextRequest, context: TContext) => Response | Promise<Response>;
 
 export interface WithAuthorizationOptions {

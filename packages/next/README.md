@@ -1,4 +1,4 @@
-# @permguard/next
+# @ironpermjs/next
 
 Explicit Next.js App Router authorization helpers built on CASL.
 
@@ -7,7 +7,7 @@ Explicit Next.js App Router authorization helpers built on CASL.
 Create an authorization instance from an application-owned ability resolver:
 
 ```ts
-import { createNextAuthorization } from "@permguard/next";
+import { createNextAuthorization } from "@ironpermjs/next";
 
 export const { requireCan, withAuthorization } =
   createNextAuthorization(getAbility);

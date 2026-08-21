@@ -74,7 +74,7 @@ describe("createNextAuthorization", () => {
     expect(response.status).toBe(403);
     expect(await response.json()).toEqual({
       error: "Forbidden",
-      code: "PERMGUARD_FORBIDDEN",
+      code: "IRONPERMJS_FORBIDDEN",
     });
     expect(handler).not.toHaveBeenCalled();
   });

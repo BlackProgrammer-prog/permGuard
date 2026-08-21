@@ -6,7 +6,7 @@ export {
 export { forbiddenResponse, type ForbiddenResponseBody } from "./responses.js";
 export type {
   AppRouteHandler,
-  PermGuardRouteContext,
+  IronPermJSRouteContext,
   RouteParameters,
   WithAuthorizationOptions,
 } from "./route-handler.js";

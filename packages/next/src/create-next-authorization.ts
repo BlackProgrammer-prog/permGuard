@@ -1,10 +1,10 @@
 import type { AnyAbility } from "@casl/ability";
-import { isForbiddenError, requireCan as enforceCan } from "@permguard/server";
+import { isForbiddenError, requireCan as enforceCan } from "@ironpermjs/server";
 
 import { forbiddenResponse } from "./responses.js";
 import type {
   AppRouteHandler,
-  PermGuardRouteContext,
+  IronPermJSRouteContext,
   WithAuthorizationOptions,
 } from "./route-handler.js";
 
@@ -15,7 +15,7 @@ export interface NextAuthorization<TAbility extends AnyAbility> {
   requireCan(...permission: Parameters<TAbility["can"]>): Promise<TAbility>;
 
   withAuthorization<
-    TContext extends PermGuardRouteContext = PermGuardRouteContext,
+    TContext extends IronPermJSRouteContext = IronPermJSRouteContext,
   >(
     permission: Parameters<TAbility["can"]>,
     handler: AppRouteHandler<TContext>,
@@ -37,7 +37,7 @@ export function createNextAuthorization<TAbility extends AnyAbility>(
   }
 
   function withAuthorization<
-    TContext extends PermGuardRouteContext = PermGuardRouteContext,
+    TContext extends IronPermJSRouteContext = IronPermJSRouteContext,
   >(
     permission: Parameters<TAbility["can"]>,
     handler: AppRouteHandler<TContext>,

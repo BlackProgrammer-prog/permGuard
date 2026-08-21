@@ -1,5 +1,5 @@
 {
-  "name": "@permguard/next",
+  "name": "@ironpermjs/next",
   "version": "0.1.0",
   "description": "Explicit Next.js App Router authorization helpers built on CASL",
   "keywords": [
@@ -8,14 +8,14 @@
     "nextjs",
     "app-router"
   ],
-  "homepage": "https://github.com/BlackProgrammer-prog/permGuard#readme",
+  "homepage": "https://github.com/BlackProgrammer-prog/IronPermJS#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BlackProgrammer-prog/permGuard.git",
+    "url": "git+https://github.com/BlackProgrammer-prog/IronPermJS.git",
     "directory": "packages/next"
   },
   "bugs": {
-    "url": "https://github.com/BlackProgrammer-prog/permGuard/issues"
+    "url": "https://github.com/BlackProgrammer-prog/IronPermJS/issues"
   },
   "license": "MIT",
   "engines": {
@@ -44,7 +44,7 @@
   },
   "dependencies": {
     "@casl/ability": "^7.0.1",
-    "@permguard/server": "workspace:*"
+    "@ironpermjs/server": "workspace:*"
   },
   "peerDependencies": {
     "next": "^15.0.0 || ^16.0.0"
