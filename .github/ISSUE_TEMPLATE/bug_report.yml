@@ -1,0 +1,66 @@
+name: Bug report
+description: Report reproducible incorrect behavior
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not include credentials, private source, or undisclosed vulnerabilities. Use private security reporting for security-sensitive details.
+
+  - type: input
+    id: version
+    attributes:
+      label: PermGuard version
+      placeholder: 0.1.0
+    validations:
+      required: true
+
+  - type: dropdown
+    id: package
+    attributes:
+      label: Package
+      options:
+        - CLI
+        - Analyzer
+        - Core
+        - Server
+        - React
+        - Next.js
+        - Graph
+        - Diff
+        - Reporter
+        - Repository tooling
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction
+      description: Include a small source example, command, and configuration.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior and output
+    validations:
+      required: true
+
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      placeholder: Node 24, pnpm 10, Next.js 16, TypeScript 5.9
+    validations:
+      required: true

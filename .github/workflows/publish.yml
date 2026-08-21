@@ -1,0 +1,45 @@
+name: Publish packages
+
+on:
+  release:
+    types:
+      - published
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: npm-publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    name: Publish to npm
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out release tag
+        uses: actions/checkout@v6
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v6
+
+      - name: Set up Node.js for trusted publishing
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org/
+          package-manager-cache: false
+
+      - name: Install a trusted-publishing-compatible npm
+        run: npm install --global npm@^11.5.1
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Validate and publish exact tarballs
+        env:
+          PERMGUARD_NPM_SCOPE: ${{ vars.NPM_SCOPE }}
+          PERMGUARD_PUBLISH: "1"
+        run: pnpm release:publish
