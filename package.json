@@ -1,5 +1,5 @@
 {
-  "name": "permguard",
+  "name": "ironpermjs",
   "version": "0.0.0",
   "private": true,
   "description": "Authorization integration and analysis tooling built around CASL",
@@ -9,12 +9,12 @@
   },
   "packageManager": "pnpm@10.15.1",
   "scripts": {
-    "build": "pnpm --filter @permguard/core build && pnpm --filter @permguard/server build && pnpm --filter @permguard/react build && pnpm --filter @permguard/next build && pnpm --filter @permguard/analyzer build && pnpm --filter @permguard/graph build && pnpm --filter @permguard/diff build && pnpm --filter @permguard/reporter build && pnpm --filter @permguard/cli build",
+    "build": "pnpm --filter @ironpermjs/core build && pnpm --filter @ironpermjs/server build && pnpm --filter @ironpermjs/react build && pnpm --filter @ironpermjs/next build && pnpm --filter @ironpermjs/analyzer build && pnpm --filter @ironpermjs/graph build && pnpm --filter @ironpermjs/diff build && pnpm --filter @ironpermjs/reporter build && pnpm --filter @ironpermjs/cli build",
     "check": "pnpm format:check && pnpm build && pnpm lint && pnpm typecheck && pnpm test",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "lint": "eslint .",
-    "permguard": "node packages/cli/dist/bin.js",
+    "ironpermjs": "node packages/cli/dist/bin.js",
     "release:dry-run": "pnpm check && node scripts/release-packages.mjs dry-run",
     "release:pack": "pnpm build && node scripts/release-packages.mjs pack",
     "release:publish": "pnpm check && node scripts/release-packages.mjs publish",

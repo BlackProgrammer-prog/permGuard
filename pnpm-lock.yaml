@@ -56,7 +56,7 @@ importers:
       '@casl/ability':
         specifier: ^7.0.1
         version: 7.0.1
-      '@permguard/next':
+      '@ironpermjs/next':
         specifier: workspace:*
         version: link:../../packages/next
       next:
@@ -81,7 +81,7 @@ importers:
 
   packages/analyzer:
     dependencies:
-      '@permguard/core':
+      '@ironpermjs/core':
         specifier: workspace:*
         version: link:../core
       typescript:
@@ -90,19 +90,19 @@ importers:
 
   packages/cli:
     dependencies:
-      '@permguard/analyzer':
+      '@ironpermjs/analyzer':
         specifier: workspace:*
         version: link:../analyzer
-      '@permguard/core':
+      '@ironpermjs/core':
         specifier: workspace:*
         version: link:../core
-      '@permguard/diff':
+      '@ironpermjs/diff':
         specifier: workspace:*
         version: link:../diff
-      '@permguard/graph':
+      '@ironpermjs/graph':
         specifier: workspace:*
         version: link:../graph
-      '@permguard/reporter':
+      '@ironpermjs/reporter':
         specifier: workspace:*
         version: link:../reporter
 
@@ -114,13 +114,13 @@ importers:
 
   packages/diff:
     dependencies:
-      '@permguard/core':
+      '@ironpermjs/core':
         specifier: workspace:*
         version: link:../core
 
   packages/graph:
     dependencies:
-      '@permguard/core':
+      '@ironpermjs/core':
         specifier: workspace:*
         version: link:../core
 
@@ -129,7 +129,7 @@ importers:
       '@casl/ability':
         specifier: ^7.0.1
         version: 7.0.1
-      '@permguard/server':
+      '@ironpermjs/server':
         specifier: workspace:*
         version: link:../server
       next:
@@ -150,7 +150,7 @@ importers:
 
   packages/reporter:
     dependencies:
-      '@permguard/core':
+      '@ironpermjs/core':
         specifier: workspace:*
         version: link:../core
 
@@ -159,7 +159,7 @@ importers:
       '@casl/ability':
         specifier: ^7.0.1
         version: 7.0.1
-      '@permguard/core':
+      '@ironpermjs/core':
         specifier: workspace:*
         version: link:../core
 
