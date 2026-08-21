@@ -1,7 +1,7 @@
 import type {
   AuthorizationCoverage,
   CoverageMetric,
-} from "@permguard/core";
+} from "@ironpermjs/core";
 import type { CalculateAuthorizationCoverageInput } from "./types.js";
 
 function percentage(detected: number, expected: number): number {

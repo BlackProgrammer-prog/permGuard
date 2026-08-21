@@ -1,4 +1,4 @@
-import type { PermissionDescriptor } from "@permguard/core";
+import type { PermissionDescriptor } from "@ironpermjs/core";
 import ts from "typescript";
 
 function getStaticStrings(expression: ts.Expression): readonly string[] {

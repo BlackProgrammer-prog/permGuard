@@ -3,7 +3,7 @@ import type {
   RouteRecord,
   ServerActionRecord,
   SourceLocation,
-} from "@permguard/core";
+} from "@ironpermjs/core";
 import ts from "typescript";
 import type { AnalyzerProject, AnalyzerSourceFile } from "../types.js";
 

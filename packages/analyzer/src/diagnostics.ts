@@ -1,4 +1,4 @@
-import type { SourceLocation } from "@permguard/core";
+import type { SourceLocation } from "@ironpermjs/core";
 import ts from "typescript";
 import { comparePaths, toProjectPath } from "./paths.js";
 import type { AnalyzerDiagnostic, DiagnosticCategory } from "./types.js";

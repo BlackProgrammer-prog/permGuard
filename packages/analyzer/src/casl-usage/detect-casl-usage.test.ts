@@ -40,7 +40,7 @@ describe("detectCaslUsage", () => {
     ).toBe(true);
   });
 
-  it("detects CASL and PermGuard enforcement calls", () => {
+  it("detects CASL and IronPermJS enforcement calls", () => {
     const result = detectFixture();
 
     expect(
@@ -52,7 +52,7 @@ describe("detectCaslUsage", () => {
     ).toEqual([
       ["casl-can", "read", "Product"],
       ["casl-throw-unless-can", "delete", "Product"],
-      ["permguard-require-can", "update", "Product"],
+      ["ironpermjs-require-can", "update", "Product"],
     ]);
   });
 

@@ -1,4 +1,4 @@
-import type { ServerActionRecord } from "@permguard/core";
+import type { ServerActionRecord } from "@ironpermjs/core";
 import ts from "typescript";
 import { getSourceLocation } from "../location.js";
 import { comparePaths } from "../paths.js";

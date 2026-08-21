@@ -2,7 +2,7 @@ import type {
   AuthorizationCheck,
   PermissionRecord,
   PermissionUsage,
-} from "@permguard/core";
+} from "@ironpermjs/core";
 
 export interface CaslUsageResult {
   readonly permissions: readonly PermissionRecord[];

@@ -1,7 +1,7 @@
 import type {
   AnalysisResult,
   AuthorizationCoverage,
-} from "@permguard/core";
+} from "@ironpermjs/core";
 
 export type CalculateAuthorizationCoverageInput = Pick<
   AnalysisResult,

@@ -1,4 +1,4 @@
-import type { SourceLocation } from "@permguard/core";
+import type { SourceLocation } from "@ironpermjs/core";
 import type ts from "typescript";
 
 export type SourceLanguage =

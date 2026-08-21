@@ -1,4 +1,4 @@
-import type { PermissionDescriptor, PermissionRecord } from "@permguard/core";
+import type { PermissionDescriptor, PermissionRecord } from "@ironpermjs/core";
 
 function actionCovers(
   definition: PermissionDescriptor,

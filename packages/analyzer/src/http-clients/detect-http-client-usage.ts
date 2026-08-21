@@ -2,7 +2,7 @@ import type {
   FindingConfidence,
   HttpClientRequestRecord,
   RouteRecord,
-} from "@permguard/core";
+} from "@ironpermjs/core";
 import ts from "typescript";
 import { getSourceLocation } from "../location.js";
 import { comparePaths } from "../paths.js";

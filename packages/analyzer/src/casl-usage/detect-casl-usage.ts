@@ -5,7 +5,7 @@ import type {
   PermissionRecord,
   PermissionUsage,
   SourceLocation,
-} from "@permguard/core";
+} from "@ironpermjs/core";
 import ts from "typescript";
 import { getSourceLocation } from "../location.js";
 import { comparePaths } from "../paths.js";
@@ -25,8 +25,8 @@ import {
 import type { CaslUsageResult } from "./types.js";
 
 const CASL_MODULE = "@casl/ability";
-const PERMGUARD_SERVER_MODULE = "@permguard/server";
-const PERMGUARD_REACT_MODULE = "@permguard/react";
+const IRONPERMJS_SERVER_MODULE = "@ironpermjs/server";
+const IRONPERMJS_REACT_MODULE = "@ironpermjs/react";
 
 type DefinitionBindings = ReadonlyMap<ts.Symbol, boolean>;
 
@@ -278,19 +278,19 @@ function detectInFile(
             node.expression,
             checker,
             imports,
-            PERMGUARD_SERVER_MODULE,
+            IRONPERMJS_SERVER_MODULE,
             "requireCan",
           )
         ) {
           for (const item of getStaticPermissions(node.arguments, 1)) {
-            addCheck(result, file, item, "permguard-require-can");
+            addCheck(result, file, item, "ironpermjs-require-can");
           }
         } else if (
           isImportedIdentifier(
             node.expression,
             checker,
             imports,
-            PERMGUARD_REACT_MODULE,
+            IRONPERMJS_REACT_MODULE,
             "useCan",
           )
         ) {
@@ -333,7 +333,7 @@ function detectInFile(
           node.tagName,
           checker,
           imports,
-          PERMGUARD_REACT_MODULE,
+          IRONPERMJS_REACT_MODULE,
           "Can",
         )
       ) {

@@ -2,7 +2,7 @@ import type {
   FindingConfidence,
   HttpRouteMatch,
   RouteRecord,
-} from "@permguard/core";
+} from "@ironpermjs/core";
 
 interface RouteCandidate {
   readonly route: RouteRecord;

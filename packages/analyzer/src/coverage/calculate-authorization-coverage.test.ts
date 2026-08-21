@@ -2,7 +2,7 @@ import type {
   AuthorizationCheck,
   RouteRecord,
   ServerActionRecord,
-} from "@permguard/core";
+} from "@ironpermjs/core";
 import { describe, expect, it } from "vitest";
 import { calculateAuthorizationCoverage } from "./calculate-authorization-coverage.js";
 
@@ -11,7 +11,7 @@ const location = { file: "app/actions.ts", line: 1, column: 1 } as const;
 function check(id: string): AuthorizationCheck {
   return {
     id,
-    kind: "permguard-require-can",
+    kind: "ironpermjs-require-can",
     permission: { action: "read", subject: "Product" },
     location,
     confidence: "certain",

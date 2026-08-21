@@ -1,4 +1,4 @@
-import type { RouteRecord } from "@permguard/core";
+import type { RouteRecord } from "@ironpermjs/core";
 import ts from "typescript";
 import { getSourceLocation } from "../location.js";
 import { comparePaths } from "../paths.js";

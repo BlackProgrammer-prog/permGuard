@@ -1,6 +1,6 @@
-# @permguard/analyzer
+# @ironpermjs/analyzer
 
-TypeScript AST-based static authorization analysis for PermGuard.
+TypeScript AST-based static authorization analysis for IronPermJS.
 
 ```ts
 import {
@@ -10,7 +10,7 @@ import {
   detectCaslUsage,
   discoverRouteHandlers,
   discoverServerActions,
-} from "@permguard/analyzer";
+} from "@ironpermjs/analyzer";
 
 const project = createAnalyzerProject({
   rootDir: process.cwd(),

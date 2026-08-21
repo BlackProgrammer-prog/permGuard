@@ -2,7 +2,7 @@ import type {
   AuthorizationIssue,
   RouteRecord,
   ServerActionRecord,
-} from "@permguard/core";
+} from "@ironpermjs/core";
 import type { CaslUsageResult } from "../casl-usage/types.js";
 import type { AnalyzerProject } from "../types.js";
 

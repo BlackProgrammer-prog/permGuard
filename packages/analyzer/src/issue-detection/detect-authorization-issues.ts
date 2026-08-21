@@ -6,7 +6,7 @@ import type {
   RouteRecord,
   ServerActionRecord,
   SourceLocation,
-} from "@permguard/core";
+} from "@ironpermjs/core";
 import { comparePaths } from "../paths.js";
 import { associateBoundaryChecks } from "./boundary-association.js";
 import {
@@ -63,7 +63,7 @@ function createUnverifiableBoundaryIssue(
     severity: "WARNING",
     confidence: "low",
     title: `Unable to verify ${kind} authorization`,
-    explanation: `PermGuard discovered ${name}, but could not resolve its function body. No claim is made about whether authorization is present.`,
+    explanation: `IronPermJS discovered ${name}, but could not resolve its function body. No claim is made about whether authorization is present.`,
     location,
   };
 }

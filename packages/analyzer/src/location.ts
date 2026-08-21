@@ -1,4 +1,4 @@
-import type { SourceLocation } from "@permguard/core";
+import type { SourceLocation } from "@ironpermjs/core";
 import type { AnalyzerSourceFile } from "./types.js";
 
 export function getSourceLocation(

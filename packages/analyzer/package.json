@@ -1,21 +1,21 @@
 {
-  "name": "@permguard/analyzer",
+  "name": "@ironpermjs/analyzer",
   "version": "0.1.0",
-  "description": "TypeScript AST-based static authorization analysis for PermGuard",
+  "description": "TypeScript AST-based static authorization analysis for IronPermJS",
   "keywords": [
     "authorization",
     "casl",
     "static-analysis",
     "typescript"
   ],
-  "homepage": "https://github.com/BlackProgrammer-prog/permGuard#readme",
+  "homepage": "https://github.com/BlackProgrammer-prog/IronPermJS#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BlackProgrammer-prog/permGuard.git",
+    "url": "git+https://github.com/BlackProgrammer-prog/IronPermJS.git",
     "directory": "packages/analyzer"
   },
   "bugs": {
-    "url": "https://github.com/BlackProgrammer-prog/permGuard/issues"
+    "url": "https://github.com/BlackProgrammer-prog/IronPermJS/issues"
   },
   "license": "MIT",
   "engines": {
@@ -43,7 +43,7 @@
     "build": "tsc -p tsconfig.build.json"
   },
   "dependencies": {
-    "@permguard/core": "workspace:*",
+    "@ironpermjs/core": "workspace:*",
     "typescript": "5.9.3"
   }
 }
