@@ -2,7 +2,7 @@
 
 ## Security model
 
-PermGuard is authorization tooling, not authentication and not a policy engine. CASL evaluates permissions, and the application server remains authoritative. UI hiding and static-analysis coverage are never security guarantees.
+IronPermJS is authorization tooling, not authentication and not a policy engine. CASL evaluates permissions, and the application server remains authoritative. UI hiding and static-analysis coverage are never security guarantees.
 
 Read [docs/security-model.md](docs/security-model.md) before deployment.
 
@@ -10,7 +10,7 @@ Read [docs/security-model.md](docs/security-model.md) before deployment.
 
 Do not open a public issue for an undisclosed vulnerability.
 
-Use [GitHub private vulnerability reporting](https://github.com/BlackProgrammer-prog/permGuard/security/advisories/new) and include:
+Use [GitHub private vulnerability reporting](https://github.com/BlackProgrammer-prog/IronPermJS/security/advisories/new) and include:
 
 - affected package and version
 - impact and realistic attack path

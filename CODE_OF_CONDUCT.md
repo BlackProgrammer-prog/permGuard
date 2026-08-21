@@ -1,6 +1,6 @@
 # Code of conduct
 
-PermGuard contributors and maintainers are expected to make participation respectful, safe, and productive.
+IronPermJS contributors and maintainers are expected to make participation respectful, safe, and productive.
 
 Be constructive, discuss technical decisions rather than people, respect different experience levels, avoid harassment and discriminatory behavior, and never publish another person's private information.
 

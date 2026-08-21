@@ -1,10 +1,10 @@
-# PermGuard — Codex Instructions
+# IronPermJS — Codex Instructions
 
 ## Project Goal
 
-PermGuard is an open-source TypeScript authorization tooling project focused on full-stack applications, starting with Next.js.
+IronPermJS is an open-source TypeScript authorization tooling project focused on full-stack applications, starting with Next.js.
 
-PermGuard is **NOT** a new authorization engine.
+IronPermJS is **NOT** a new authorization engine.
 
 The project MUST reuse **CASL** for core permission evaluation whenever practical.
 
@@ -32,11 +32,11 @@ CASL answers:
 
 > Can this user perform this action on this subject?
 
-PermGuard answers:
+IronPermJS answers:
 
 > Where are permissions defined, used, enforced, missing, inconsistent, and changing across the application?
 
-PermGuard should complement CASL, not compete with it.
+IronPermJS should complement CASL, not compete with it.
 
 ---
 
@@ -124,7 +124,7 @@ export function defineAbilityFor(user: User) {
 }
 ```
 
-PermGuard should make that authorization easy to use throughout Next.js.
+IronPermJS should make that authorization easy to use throughout Next.js.
 
 Example server API:
 
@@ -203,7 +203,7 @@ Packages may evolve, but maintain clear boundaries.
 
 ## packages/core
 
-Shared framework-independent PermGuard types and abstractions around CASL.
+Shared framework-independent IronPermJS types and abstractions around CASL.
 
 May contain:
 
@@ -263,7 +263,7 @@ useAbility();
 
 Prefer CASL-native behavior where possible.
 
-Do not duplicate `@casl/react` unless PermGuard requires functionality it does not provide.
+Do not duplicate `@casl/react` unless IronPermJS requires functionality it does not provide.
 
 ---
 
@@ -296,7 +296,7 @@ Avoid invisible global magic.
 
 Static source-code analyzer.
 
-This is a major part of PermGuard.
+This is a major part of IronPermJS.
 
 It should detect authorization usage and problems in application source code.
 
@@ -429,10 +429,10 @@ CLI entrypoint.
 Potential commands:
 
 ```bash
-permguard scan
-permguard report
-permguard graph
-permguard diff
+ironpermjs scan
+ironpermjs report
+ironpermjs graph
+ironpermjs diff
 ```
 
 CLI must orchestrate packages rather than contain business logic.
@@ -739,7 +739,7 @@ Start with Route Handlers and Server Actions.
 Eventually:
 
 ```bash
-permguard diff
+ironpermjs diff
 ```
 
 Compare authorization-relevant changes.
@@ -764,7 +764,7 @@ Keep git integration separate from core analyzer logic where possible.
 Eventually support:
 
 ```bash
-permguard scan --ci
+ironpermjs scan --ci
 ```
 
 Allow configuration such as:
@@ -787,7 +787,7 @@ Do not require GitHub Actions.
 Potential config:
 
 ```text
-permguard.config.ts
+ironpermjs.config.ts
 ```
 
 Example:
@@ -929,7 +929,7 @@ Avoid:
 
 # Public API Philosophy
 
-PermGuard APIs should feel small and obvious.
+IronPermJS APIs should feel small and obvious.
 
 Good:
 
@@ -1061,7 +1061,7 @@ Do NOT build:
 - Kubernetes components
 - microservices platform
 
-PermGuard analyzes and integrates authorization.
+IronPermJS analyzes and integrates authorization.
 
 It does not own user identity.
 
@@ -1133,7 +1133,7 @@ Whenever existing CASL functionality solves a problem cleanly:
 
 Before writing authorization engine code from scratch, check whether CASL already provides it.
 
-PermGuard should spend its engineering effort on what CASL does not primarily solve:
+IronPermJS should spend its engineering effort on what CASL does not primarily solve:
 
 ```text
 Integration
@@ -1146,4 +1146,4 @@ Diff
 CI
 ```
 
-When uncertain whether to implement something ourselves or use CASL, prefer CASL unless doing so would compromise PermGuard's analyzer or framework-integration architecture.
+When uncertain whether to implement something ourselves or use CASL, prefer CASL unless doing so would compromise IronPermJS's analyzer or framework-integration architecture.

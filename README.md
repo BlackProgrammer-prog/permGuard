@@ -1,20 +1,20 @@
-# PermGuard
+# IronPermJS
 
-[![CI](https://github.com/BlackProgrammer-prog/permGuard/actions/workflows/ci.yml/badge.svg)](https://github.com/BlackProgrammer-prog/permGuard/actions/workflows/ci.yml)
+[![CI](https://github.com/BlackProgrammer-prog/IronPermJS/actions/workflows/ci.yml/badge.svg)](https://github.com/BlackProgrammer-prog/IronPermJS/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Node.js 20+](https://img.shields.io/badge/node-%3E%3D20-339933.svg)](package.json)
 
 **See where authorization is defined, enforced, missing, and changing in a full-stack TypeScript application.**
 
-PermGuard is an open-source authorization toolkit built around [CASL](https://casl.js.org/). CASL makes permission decisions. PermGuard adds explicit server and UI integrations, AST-based analysis, authorization coverage, an offline HTML dashboard, semantic diffs, and CI policy enforcement.
+IronPermJS is an open-source authorization toolkit built around [CASL](https://casl.js.org/). CASL makes permission decisions. IronPermJS adds explicit server and UI integrations, AST-based analysis, authorization coverage, an offline HTML dashboard, semantic diffs, and CI policy enforcement.
 
-PermGuard does not replace CASL, authentication, or your server-side security boundary.
+IronPermJS does not replace CASL, authentication, or your server-side security boundary.
 
-## Why PermGuard?
+## Why IronPermJS?
 
 Authorization usually spreads across ability definitions, Route Handlers, Server Actions, React components, and API clients. Code review can miss a new endpoint with no authorization check, a UI/server permission mismatch, or a permission rule that is no longer used.
 
-PermGuard turns those scattered signals into one deterministic analysis model:
+IronPermJS turns those scattered signals into one deterministic analysis model:
 
 ```text
 TypeScript / TSX
@@ -30,7 +30,7 @@ It currently understands:
 
 - CASL `AbilityBuilder` definitions and common enforcement patterns
 - Next.js App Router Route Handlers and Server Actions
-- PermGuard server, React, and Next.js helpers
+- IronPermJS server, React, and Next.js helpers
 - `fetch`, Axios, Axios instances, `ky`, and configured API wrappers
 - missing boundary enforcement, unknown permission references, and probable unused rules
 - client-to-route links, authorization graph construction, and boundary coverage
@@ -47,30 +47,30 @@ Every heuristic finding has a confidence level. Coverage means “a recognized c
 
 ## Quick start
 
-> The source currently uses the `@permguard` npm scope. Confirm that you own this scope—or rename it to an npm scope you own—before the first public release. See [Publishing](docs/publishing.md).
+> The source currently uses the `@ironpermjs` npm scope. Confirm that you own this scope—or rename it to an npm scope you own—before the first public release. See [Publishing](docs/publishing.md).
 
 Install the CLI in the application you want to inspect:
 
 ```bash
-pnpm add -D @permguard/cli
+pnpm add -D @ironpermjs/cli
 ```
 
 Scan a Next.js project:
 
 ```bash
-pnpm exec permguard scan .
+pnpm exec ironpermjs scan .
 ```
 
 Create an offline report:
 
 ```bash
-pnpm exec permguard report . --output permguard-report.html
+pnpm exec ironpermjs report . --output ironpermjs-report.html
 ```
 
 Fail CI when a `HIGH` or `CRITICAL` issue is detected:
 
 ```bash
-pnpm exec permguard scan . --ci --fail-on HIGH
+pnpm exec ironpermjs scan . --ci --fail-on HIGH
 ```
 
 The analyzer does not execute application code and does not need application secrets.
@@ -105,18 +105,18 @@ export function defineAbilityFor(user: User) {
 }
 ```
 
-PermGuard deliberately leaves rule evaluation to CASL.
+IronPermJS deliberately leaves rule evaluation to CASL.
 
 ## Enforce on the server
 
 Install only the integration you need:
 
 ```bash
-pnpm add @casl/ability @permguard/server
+pnpm add @casl/ability @ironpermjs/server
 ```
 
 ```ts
-import { requireCan } from "@permguard/server";
+import { requireCan } from "@ironpermjs/server";
 
 const ability = defineAbilityFor(user);
 
@@ -139,13 +139,13 @@ Load and authorize before mutation. Never accept an ability, role, or permission
 ## Integrate with Next.js
 
 ```bash
-pnpm add @casl/ability @permguard/next
+pnpm add @casl/ability @ironpermjs/next
 ```
 
 Create one application-owned resolver:
 
 ```ts
-import { createNextAuthorization } from "@permguard/next";
+import { createNextAuthorization } from "@ironpermjs/next";
 import { defineAbilityFor } from "./ability";
 import { requireUser } from "./session";
 
@@ -182,16 +182,16 @@ export async function publishProduct(id: string) {
 }
 ```
 
-The ability resolver runs per invocation. PermGuard does not introduce hidden middleware or global authorization state.
+The ability resolver runs per invocation. IronPermJS does not introduce hidden middleware or global authorization state.
 
 ## Render permission-aware React UI
 
 ```bash
-pnpm add @casl/ability @permguard/react react
+pnpm add @casl/ability @ironpermjs/react react
 ```
 
 ```tsx
-import { AbilityProvider, Can, useCan } from "@permguard/react";
+import { AbilityProvider, Can, useCan } from "@ironpermjs/react";
 
 export function ProductActions({ ability }: { ability: AppAbility }) {
   return (
@@ -212,7 +212,7 @@ export function ProductActions({ ability }: { ability: AppAbility }) {
 
 ## API client discovery
 
-PermGuard recognizes direct and instance-based clients:
+IronPermJS recognizes direct and instance-based clients:
 
 ```ts
 await fetch("/api/products/42", { method: "DELETE" });
@@ -227,7 +227,7 @@ await ky.post("/api/products", { json: input });
 Register an imported project-specific wrapper with a repeatable CLI option:
 
 ```bash
-pnpm exec permguard scan . \
+pnpm exec ironpermjs scan . \
   --client-module "@/lib/api-client" \
   --client-module "@acme/http"
 ```
@@ -237,10 +237,10 @@ Dynamic URLs are reported conservatively with lower confidence when the exact ro
 ## Commands
 
 ```bash
-permguard scan [root] [options]
-permguard graph [root] --output authorization-graph.json
-permguard report [root] --output permguard-report.html
-permguard diff [root] --baseline previous-analysis.json
+ironpermjs scan [root] [options]
+ironpermjs graph [root] --output authorization-graph.json
+ironpermjs report [root] --output ironpermjs-report.html
+ironpermjs diff [root] --baseline previous-analysis.json
 ```
 
 Useful scan options:
@@ -255,17 +255,17 @@ See the complete [CLI reference](docs/cli-reference.md).
 
 ## Packages
 
-| Package               | Responsibility                                   |
-| --------------------- | ------------------------------------------------ |
-| `@permguard/core`     | Framework-independent types and analysis model   |
-| `@permguard/server`   | CASL-based server enforcement and safe snapshots |
-| `@permguard/react`    | Analyzer-friendly React UI helpers               |
-| `@permguard/next`     | Explicit Next.js App Router integration          |
-| `@permguard/analyzer` | TypeScript AST parsing and detection passes      |
-| `@permguard/graph`    | Deterministic authorization graph construction   |
-| `@permguard/diff`     | Semantic analysis diff and CI policy             |
-| `@permguard/reporter` | Offline HTML and JSON rendering                  |
-| `@permguard/cli`      | Command-line orchestration                       |
+| Package                | Responsibility                                   |
+| ---------------------- | ------------------------------------------------ |
+| `@ironpermjs/core`     | Framework-independent types and analysis model   |
+| `@ironpermjs/server`   | CASL-based server enforcement and safe snapshots |
+| `@ironpermjs/react`    | Analyzer-friendly React UI helpers               |
+| `@ironpermjs/next`     | Explicit Next.js App Router integration          |
+| `@ironpermjs/analyzer` | TypeScript AST parsing and detection passes      |
+| `@ironpermjs/graph`    | Deterministic authorization graph construction   |
+| `@ironpermjs/diff`     | Semantic analysis diff and CI policy             |
+| `@ironpermjs/reporter` | Offline HTML and JSON rendering                  |
+| `@ironpermjs/cli`      | Command-line orchestration                       |
 
 Applications normally install `cli` for auditing and one or more runtime integrations. They do not need every package.
 
@@ -289,8 +289,8 @@ These are reported as analysis limits—not silently presented as security guara
 ## Development
 
 ```bash
-git clone https://github.com/BlackProgrammer-prog/permGuard.git
-cd permGuard
+git clone https://github.com/BlackProgrammer-prog/IronPermJS.git
+cd IronPermJS
 corepack enable
 pnpm install --frozen-lockfile
 pnpm check
@@ -303,4 +303,4 @@ Read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request. Security 
 
 ## License
 
-MIT © PermGuard contributors.
+MIT © IronPermJS contributors.

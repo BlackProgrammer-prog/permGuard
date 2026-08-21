@@ -25,5 +25,5 @@ All notable user-visible changes are recorded here. The project follows Semantic
 - self-contained offline HTML and JSON reports.
 - semantic authorization diff and severity threshold evaluation.
 
-[Unreleased]: https://github.com/BlackProgrammer-prog/permGuard/compare/v0.1.0...HEAD
-[0.1.0]: https://github.com/BlackProgrammer-prog/permGuard/releases/tag/v0.1.0
+[Unreleased]: https://github.com/BlackProgrammer-prog/IronPermJS/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/BlackProgrammer-prog/IronPermJS/releases/tag/v0.1.0

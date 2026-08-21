@@ -14,8 +14,8 @@ CASL is the permission engine. Contributions must not recreate CASL rule evaluat
 ## Setup
 
 ```bash
-git clone https://github.com/BlackProgrammer-prog/permGuard.git
-cd permGuard
+git clone https://github.com/BlackProgrammer-prog/IronPermJS.git
+cd IronPermJS
 corepack enable
 pnpm install --frozen-lockfile
 pnpm check
