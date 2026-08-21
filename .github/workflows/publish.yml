@@ -40,6 +40,6 @@ jobs:
 
       - name: Validate and publish exact tarballs
         env:
-          PERMGUARD_NPM_SCOPE: ${{ vars.NPM_SCOPE }}
-          PERMGUARD_PUBLISH: "1"
+          IRONPERMJS_NPM_SCOPE: ${{ vars.NPM_SCOPE }}
+          IRONPERMJS_PUBLISH: "1"
         run: pnpm release:publish

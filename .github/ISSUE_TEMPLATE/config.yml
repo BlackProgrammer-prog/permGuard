@@ -1,8 +1,8 @@
 blank_issues_enabled: false
 contact_links:
   - name: Security report
-    url: https://github.com/BlackProgrammer-prog/permGuard/security/advisories/new
+    url: https://github.com/BlackProgrammer-prog/IronPermJS/security/advisories/new
     about: Report vulnerabilities privately.
   - name: Usage documentation
-    url: https://github.com/BlackProgrammer-prog/permGuard/blob/main/docs/getting-started.md
+    url: https://github.com/BlackProgrammer-prog/IronPermJS/blob/main/docs/getting-started.md
     about: Read the tutorial and troubleshooting guide first.
