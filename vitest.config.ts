@@ -4,6 +4,9 @@ import { defineConfig } from "vitest/config";
 export default defineConfig({
   resolve: {
     alias: {
+      "@permguard/diff": fileURLToPath(
+        new URL("packages/diff/src/index.ts", import.meta.url),
+      ),
       "@permguard/reporter": fileURLToPath(
         new URL("packages/reporter/src/index.ts", import.meta.url),
       ),
