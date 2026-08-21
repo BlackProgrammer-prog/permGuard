@@ -1,6 +1,6 @@
 # IronPermJS
 
-[![CI](https://github.com/BlackProgrammer-prog/IronPermJS/actions/workflows/ci.yml/badge.svg)](https://github.com/BlackProgrammer-prog/IronPermJS/actions/workflows/ci.yml)
+[![CI](https://github.com/BlackProgrammer-prog/permGuard/actions/workflows/ci.yml/badge.svg)](https://github.com/BlackProgrammer-prog/permGuard/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Node.js 20+](https://img.shields.io/badge/node-%3E%3D20-339933.svg)](package.json)
 
