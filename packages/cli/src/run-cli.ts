@@ -1,6 +1,7 @@
 import { mkdirSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import type { AnalysisResult } from "@permguard/core";
+import { renderHtmlReport, renderJsonReport } from "@permguard/reporter";
 import {
   analyzeProject,
   type AnalyzeProjectOptions,
@@ -15,6 +16,7 @@ const HELP = `Usage: permguard <command> [root] [options]
 Commands:
   scan            Analyze authorization and print a summary (default)
   graph           Analyze authorization and print graph JSON
+  report          Analyze authorization and render an offline HTML report
 
 Options:
   --json          Print the complete scan result as JSON
@@ -86,11 +88,15 @@ export function runCli(
       additionalClientModules: options.additionalClientModules,
     });
     const value =
-      options.command === "graph"
-        ? JSON.stringify(analysis.graph, null, 2)
-        : options.json
-          ? JSON.stringify(analysis, null, 2)
-          : formatScanSummary(analysis, rootDir);
+      options.command === "report"
+        ? renderHtmlReport(analysis, {
+            projectName: path.basename(rootDir),
+          })
+        : options.command === "graph"
+          ? JSON.stringify(analysis.graph, null, 2)
+          : options.json
+            ? renderJsonReport(analysis)
+            : formatScanSummary(analysis, rootDir);
     const output = `${value}\n`;
 
     if (options.outputPath) {

@@ -76,6 +76,21 @@ describe("runCli", () => {
     expect(capture.stdout.join("")).toContain("Wrote");
   });
 
+  it("renders an offline HTML report", () => {
+    const capture = createIO();
+    const exitCode = runCli(
+      ["report", "--output", "reports/permguard.html"],
+      capture.io,
+      { analyze: () => analysis },
+    );
+
+    expect(exitCode).toBe(0);
+    const html = capture.files.get("/workspace/reports/permguard.html") ?? "";
+    expect(html).toContain("<!doctype html>");
+    expect(html).toContain("Authorization overview");
+    expect(html).not.toMatch(/<(script|link|img)\b/i);
+  });
+
   it("returns distinct exit codes for invalid arguments and analysis errors", () => {
     const invalid = createIO();
     expect(runCli(["--bad"], invalid.io, { analyze: () => analysis })).toBe(2);
