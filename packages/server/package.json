@@ -1,21 +1,21 @@
 {
-  "name": "@permguard/server",
+  "name": "@ironpermjs/server",
   "version": "0.1.0",
-  "description": "Server-side CASL enforcement helpers for PermGuard",
+  "description": "Server-side CASL enforcement helpers for IronPermJS",
   "keywords": [
     "authorization",
     "casl",
     "permissions",
     "server"
   ],
-  "homepage": "https://github.com/BlackProgrammer-prog/permGuard#readme",
+  "homepage": "https://github.com/BlackProgrammer-prog/IronPermJS#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BlackProgrammer-prog/permGuard.git",
+    "url": "git+https://github.com/BlackProgrammer-prog/IronPermJS.git",
     "directory": "packages/server"
   },
   "bugs": {
-    "url": "https://github.com/BlackProgrammer-prog/permGuard/issues"
+    "url": "https://github.com/BlackProgrammer-prog/IronPermJS/issues"
   },
   "license": "MIT",
   "engines": {
@@ -44,6 +44,6 @@
   },
   "dependencies": {
     "@casl/ability": "^7.0.1",
-    "@permguard/core": "workspace:*"
+    "@ironpermjs/core": "workspace:*"
   }
 }

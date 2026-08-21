@@ -1,9 +1,9 @@
-# @permguard/server
+# @ironpermjs/server
 
 Server-side authorization enforcement helpers built on CASL.
 
 ```ts
-import { requireCan } from "@permguard/server";
+import { requireCan } from "@ironpermjs/server";
 
 requireCan(ability, "delete", "Product");
 ```

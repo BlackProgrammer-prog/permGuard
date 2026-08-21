@@ -1,4 +1,7 @@
-import type { PermissionDescriptor, PermissionSnapshot } from "@permguard/core";
+import type {
+  PermissionDescriptor,
+  PermissionSnapshot,
+} from "@ironpermjs/core";
 
 export interface PermissionSnapshotAbility<
   TAction extends string,
